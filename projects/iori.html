@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iori · Yanis</title>
+  <meta name="description"
+    content="Iori: a browser extension that interrupts endless scrolling with Japanese flashcards, backed by a local Python spaced-repetition backend.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="solid-header">
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav-logo"><img src="../assets/favicon.png" alt="">Yanis</a>
+      <div class="nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#photography">Photography</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
+          <span class="season-icon icon-spring" aria-hidden="true">🌸</span>
+          <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
+          <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
+          <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container">
+        <a class="back-link" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Back to projects
+        </a>
+
+        <p class="project-eyebrow">Personal project · 2026–now</p>
+        <h1 class="project-title">Iori</h1>
+        <p class="project-tagline">
+          A browser extension that turns doomscrolling into Japanese practice: when a feed pulls you
+          under, it surfaces a flashcard over the page: a small refuge to step into for a moment,
+          scheduled by a spaced-repetition engine and served entirely from your own machine.
+        </p>
+        <div class="project-meta">
+          <span class="meta-chip">Browser extension</span>
+          <span class="meta-chip">Japanese learning</span>
+          <span class="meta-chip">Spaced repetition</span>
+          <span class="meta-chip">Local-first</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-body-wrap">
+      <div class="container">
+        <figure class="project-cover">
+          <div class="cover-bar"><span></span><span></span><span></span></div>
+          <img src="../assets/projects/iori_deck.png" alt="Iori: deck management interface">
+        </figure>
+
+        <div class="project-layout">
+          <div class="project-detail">
+            <h2>About the project</h2>
+            <p>
+              Iori started from a simple observation: the time lost scrolling social feeds could go
+              into learning Japanese instead. An attention state machine watches how long you dwell on
+              a distraction site and, at the right moment, slides a flashcard over the page. Swipe up to
+              dismiss, swipe down to delete the card, or grade it and drop back into your feed.
+            </p>
+            <p>
+              The name carries the idea. 庵 (<em>iori</em>) is a hermitage, the small thatched hut a
+              poet retreats to, not a temple you visit. The feed is the 沼 (<em>numa</em>), the swamp
+              you sink into; the 庵 is what surfaces. So a card is designed as a refuge, never an alarm:
+              quiet copy, falling sakura petals, no streaks, no red badges, no guilt.
+            </p>
+            <p>
+              Reviews are scheduled with the SM-2 spaced-repetition algorithm, the same family Anki uses:
+              cards you know come back later, cards you miss come back soon. All the logic lives in a
+              local Python backend built as a pure, fully tested core. The Manifest&nbsp;V3 extension
+              holds no business logic and simply relays browser events to it over a loopback HTTP call.
+              Decks, review history and settings persist to a local file, and the server only ever binds
+              to <code>127.0.0.1</code>: no account, no cloud, no telemetry.
+            </p>
+
+            <h2>Main features</h2>
+            <ul class="feature-grid">
+              <li>
+                <h3>Scroll interruption</h3>
+                <p>An attention state machine tracks time spent on distraction sites and pops a card at
+                  the right moment, with cooldowns, snoozes and a daily quota so it never nags.</p>
+              </li>
+              <li>
+                <h3>SM-2 scheduling</h3>
+                <p>Spaced repetition in the Anki family: known cards come back later, missed ones
+                  come back soon, on a card-by-card interval.</p>
+              </li>
+              <li>
+                <h3>Add words as you browse</h3>
+                <p>Select any word, Japanese or English, and add it from the right-click menu. It
+                  resolves through the local dictionary, falling back to a keyless online translator
+                  when needed.</p>
+              </li>
+              <li>
+                <h3>Bundled JLPT decks</h3>
+                <p>Ready-made N5–N1 decks (8,000+ cards) you can load in a click, on top of any words
+                  you mine yourself.</p>
+              </li>
+              <li>
+                <h3>Local Japanese dictionary</h3>
+                <p>A JMdict database compiled to SQLite, with English and French glosses and
+                  frequency-based ranking so the words that matter surface first.</p>
+              </li>
+              <li>
+                <h3>100% local &amp; private</h3>
+                <p>Flask backend and local storage on your own machine: bound to loopback only, no
+                  account, no cloud, no telemetry.</p>
+              </li>
+            </ul>
+
+            <h2>Screenshots</h2>
+            <div class="project-gallery">
+              <figure>
+                <img src="../assets/projects/iori_menu.png" alt="Iori: extension menu">
+              </figure>
+              <figure>
+                <img src="../assets/projects/iori_popup.png" alt="Iori: flashcard overlay popup">
+              </figure>
+            </div>
+
+            <h2>Tech stack</h2>
+            <p>
+              A TypeScript Manifest&nbsp;V3 extension (Chromium and Firefox) renders the overlay in a
+              Shadow DOM and forwards every browser event to a local Python / Flask backend. The core
+              (the attention machine and the SM-2 engine) is written as pure, side-effect-free functions
+              covered by a pytest suite. The dictionary is a JMdict dump built offline into SQLite, with
+              word-frequency ranking from <code>wordfreq</code>, and unknown selections fall back to a
+              keyless machine translator. Everything runs on one machine, over <code>127.0.0.1</code>.
+            </p>
+          </div>
+
+          <aside class="project-sidebar">
+            <div class="sidebar-card">
+              <div class="sidebar-meta">
+                <div><span class="k">Year</span><span class="v">2026–now</span></div>
+                <div><span class="k">Type</span><span class="v">Browser extension</span></div>
+                <div><span class="k">Status</span><span class="v">Live</span></div>
+              </div>
+              <a class="btn btn-block" href="https://github.com/f2ire/iori" target="_blank" rel="noopener">
+                View on GitHub</a>
+              <h3 class="sidebar-label">Stack</h3>
+              <ul class="project-stack">
+                <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
+                <li><i class="devicon-python-plain colored"></i>Python</li>
+                <li><i class="devicon-flask-original"></i>Flask</li>
+                <li><i class="devicon-sqlite-plain"></i>SQLite</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-nav prev">
+      <a class="card-link" href="aoe4units.html" aria-label="Previous project: AoE4 Units"></a>
+      <iframe class="proj-nav-frame" src="aoe4units.html" title="AoE4 Units preview" loading="lazy" scrolling="no"
+        tabindex="-1" aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir">← Previous</span>
+        <span class="proj-nav-name">AoE4 Units</span>
+      </span>
+    </div>
+    <div class="proj-nav next">
+      <a class="card-link" href="shen.html" aria-label="Next project: Shen"></a>
+      <iframe class="proj-nav-frame" src="shen.html" title="Shen preview" loading="lazy" scrolling="no" tabindex="-1"
+        aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir">Next →</span>
+        <span class="proj-nav-name">Shen</span>
+      </span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Yanis · built by hand, no framework.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

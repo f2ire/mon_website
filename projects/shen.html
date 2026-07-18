@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shen · Yanis</title>
+  <meta name="description"
+    content="Shen: a local-first research IDE pairing a Zotero library, a LaTeX/Python editor and a private, citation-grounded AI assistant that jumps to the exact source passage in your PDFs.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="solid-header">
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav-logo"><img src="../assets/favicon.png" alt="">Yanis</a>
+      <div class="nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#photography">Photography</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
+          <span class="season-icon icon-spring" aria-hidden="true">🌸</span>
+          <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
+          <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
+          <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container">
+        <a class="back-link" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Back to projects
+        </a>
+
+        <p class="project-eyebrow">Personal project · 2026–now</p>
+        <h1 class="project-title">Shen</h1>
+        <p class="project-tagline">
+          A local-first research IDE for scientists: one desktop app pairing your Zotero
+          library, a LaTeX/Python editor and a private AI assistant that answers straight from
+          your own papers, with sources you can click back to.
+        </p>
+        <div class="project-meta">
+          <span class="meta-chip">Desktop app</span>
+          <span class="meta-chip">Local-first</span>
+          <span class="meta-chip">AI / RAG</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-body-wrap">
+      <div class="container">
+        <figure class="project-cover">
+          <div class="cover-bar"><span></span><span></span><span></span></div>
+          <img src="../assets/projects/Shen-project.png"
+            alt="Shen: editor with Zotero library and AI assistant side by side">
+        </figure>
+
+        <div class="project-layout">
+          <div class="project-detail">
+        <h2>About the project</h2>
+        <p>
+          Writing a paper usually means juggling three tools at once: a reference manager on one
+          side, an editor on the other, and, increasingly, an AI chat that knows nothing about
+          the papers you actually cite. Shen collapses that into a single three-panel desktop
+          workspace: your Zotero library, a LaTeX/Python editor, and an assistant that reads from
+          your own library instead of the open web.
+        </p>
+        <p>
+          The assistant runs <strong>citation-grounded retrieval</strong> (RAG) over your papers,
+          so every answer ships with its sources. The magic moment: clicking a citation jumps the
+          PDF viewer to the exact passage and highlights it in place, down to the bounding box on
+          the page, so you can always trace a claim back to where it comes from. And it stays
+          private: the library, the search index and the retrieval all run on your machine.
+        </p>
+
+        <h2>Main features</h2>
+        <ul class="feature-grid">
+          <li>
+            <h3>Three-panel workspace</h3>
+            <p>Bibliography, editor and assistant in one window, modelled on the VS Code
+              interaction you already know.</p>
+          </li>
+          <li>
+            <h3>Zotero, natively</h3>
+            <p>Your library synced through Zotero's official Web API (one-click OAuth), not a
+              fragile database hack, with a built-in PDF reader.</p>
+          </li>
+          <li>
+            <h3>A real editor</h3>
+            <p>LaTeX, Python and text with open/save, syntax support and an integrated terminal,
+              so writing and analysis live side by side.</p>
+          </li>
+          <li>
+            <h3>Grounded AI assistant</h3>
+            <p>Hybrid semantic + keyword search over your papers; bring your own key (Anthropic by
+              default) or run fully offline with a local model.</p>
+          </li>
+          <li>
+            <h3>Clickable citations</h3>
+            <p>Every source jumps to and highlights the exact passage in the PDF, at the right
+              position on the page.</p>
+          </li>
+          <li>
+            <h3>Local-first by design</h3>
+            <p>No account, no cloud store; your papers never leave the machine.</p>
+          </li>
+        </ul>
+
+        <h2>Tech stack</h2>
+        <p>
+          Shen is a <strong>Tauri 2</strong> desktop app: a Rust core for OS access and Zotero
+          sync, a React/TypeScript interface, and a Python service for the retrieval pipeline. The
+          two sides talk only through a typed, versioned contract, so the app and the AI engine
+          evolve independently. Under the hood, retrieval combines a Qdrant vector store with a
+          GROBID pass that extracts page-level coordinates, the basis for those pixel-accurate
+          citation highlights.
+        </p>
+        </div>
+
+        <aside class="project-sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-meta">
+              <div><span class="k">Year</span><span class="v">2026–now</span></div>
+              <div><span class="k">Type</span><span class="v">Desktop app</span></div>
+              <div><span class="k">Status</span><span class="v">In development</span></div>
+            </div>
+            <a class="btn btn-block" href="https://github.com/shen-industries/shen" target="_blank" rel="noopener">
+              View on GitHub</a>
+            <h3 class="sidebar-label">Stack</h3>
+            <ul class="project-stack">
+              <li><i class="devicon-tauri-original colored"></i>Tauri</li>
+              <li><i class="devicon-rust-original"></i>Rust</li>
+              <li><i class="devicon-react-original colored"></i>React</li>
+              <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
+              <li><i class="devicon-tailwindcss-original colored"></i>Tailwind CSS</li>
+              <li><i class="devicon-python-plain colored"></i>Python</li>
+              <li><i class="devicon-fastapi-plain colored"></i>FastAPI</li>
+            </ul>
+          </div>
+        </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-nav prev">
+      <a class="card-link" href="iori.html" aria-label="Previous project: Iori"></a>
+      <iframe class="proj-nav-frame" src="iori.html" title="Iori preview" loading="lazy" scrolling="no"
+        tabindex="-1" aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir">← Previous</span>
+        <span class="proj-nav-name">Iori</span>
+      </span>
+    </div>
+    <div class="proj-nav next">
+      <a class="card-link" href="aoe4units.html" aria-label="Next project: AoE4 Units"></a>
+      <iframe class="proj-nav-frame" src="aoe4units.html" title="AoE4 Units preview" loading="lazy" scrolling="no"
+        tabindex="-1" aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir">Next →</span>
+        <span class="proj-nav-name">AoE4 Units</span>
+      </span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Yanis · built by hand, no framework.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

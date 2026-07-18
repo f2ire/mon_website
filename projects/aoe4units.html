@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AoE4 Units · Yanis</title>
+  <meta name="description"
+    content="AoE4 Units: an educational combat-analysis tool for Age of Empires IV, with a full battle simulation and a companion Twitch extension.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="solid-header">
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav-logo"><img src="../assets/favicon.png" alt="">Yanis</a>
+      <div class="nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#photography">Photography</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
+          <span class="season-icon icon-spring" aria-hidden="true">🌸</span>
+          <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
+          <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
+          <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container">
+        <a class="back-link" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Back to projects
+        </a>
+
+        <p class="project-eyebrow">Personal project · 2025–now</p>
+        <h1 class="project-title">AoE4 Units</h1>
+        <p class="project-tagline">
+          An educational combat-analysis tool for Age of Empires IV: compare any two units side by
+          side with a full battle simulation, on the web or live on Twitch.
+        </p>
+        <div class="project-meta">
+          <span class="meta-chip">Web app</span>
+          <span class="meta-chip">Twitch extension</span>
+          <span class="meta-chip">Game data</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-body-wrap">
+      <div class="container">
+        <figure class="project-cover">
+          <div class="cover-bar"><span></span><span></span><span></span></div>
+          <img src="../assets/projects/aoe4units_ex.png"
+            alt="AoE4 Units: side-by-side unit comparison with battle simulation">
+        </figure>
+
+        <div class="project-layout">
+          <div class="project-detail">
+            <h2>About the project</h2>
+            <p>
+              I've been playing the Age of Empires series for as long as I can remember, and AoE4 is the
+              one I keep coming back to. Like a lot of players I kept hitting the same wall: who actually
+              wins a fight is rarely obvious from the stat card. Melee and ranged armor shave a flat
+              amount off every hit, many units deal bonus damage against a whole class (spearmen against
+              cavalry, for instance), and each Age plus every Blacksmith upgrade shifts the numbers
+              again. The community had spreadsheets and wikis, but nothing that just answered the
+              question in a couple of clicks, so I built it.
+            </p>
+            <p>
+              AoE4 Units settles the matchup by simulating the fight itself: pick any two units, set
+              their Age and upgrades, and watch it resolve down to who is left standing. The numbers are
+              never hand-entered: a data-driven pipeline rebuilds every unit's stats from the game's
+              own data, with a layer of hand-written corrections for the special cases, so when a patch
+              lands the tool follows it instead of going stale. The whole thing started as a personal
+              project and grew into something the game's competitive community actually uses; the
+              simulation engine is shared code, reused unchanged in a companion Twitch extension so
+              viewers can run their own matchups live on the stream overlay.
+            </p>
+
+            <h2>Main features</h2>
+            <ul class="feature-grid">
+              <li>
+                <h3>Any unit, any upgrade</h3>
+                <p>Side-by-side comparison of any two units, at any Age, with technologies and
+                  abilities toggled on and off.</p>
+              </li>
+              <li>
+                <h3>A real fight, not a stat sheet</h3>
+                <p>Attack cadence, melee and ranged armor, bonus damage, charges and healing all play
+                  out to a time-to-kill and a survivor.</p>
+              </li>
+              <li>
+                <h3>Army battles</h3>
+                <p>Scale past 1v1 to N-vs-M, balanced by equal cost or equal population, with focus-fire
+                  and attack-move engagement models.</p>
+              </li>
+              <li>
+                <h3>Kiting and spacing</h3>
+                <p>Ranged units kite; an approach phase gives archers their free shots while melee
+                  closes the gap.</p>
+              </li>
+              <li>
+                <h3>Patch-proof data</h3>
+                <p>Every unit is rebuilt from the game's data each patch, with a correction layer for
+                  the special cases.</p>
+              </li>
+              <li>
+                <h3>Live on Twitch</h3>
+                <p>A companion extension runs matchups on the channel overlay, sharing the same engine
+                  as the site.</p>
+              </li>
+            </ul>
+
+            <h2>Tech stack</h2>
+            <p>
+              A React 18 and TypeScript single-page app, styled with TailwindCSS and shadcn/ui,
+              animated with Framer Motion, bundled by Vite. The combat logic sits in isolated modules
+              reused by both the site and the Twitch extension. Unit pages are pre-rendered to static
+              HTML with vite-react-ssg, so every unit gets its own indexable page for search.
+            </p>
+          </div>
+
+          <aside class="project-sidebar">
+            <div class="sidebar-card">
+              <div class="sidebar-meta">
+                <div><span class="k">Year</span><span class="v">2025–now</span></div>
+                <div><span class="k">Type</span><span class="v">Web app</span></div>
+                <div><span class="k">Status</span><span class="v">Live</span></div>
+              </div>
+              <a class="btn btn-block" href="https://www.aoe4units.com" target="_blank" rel="noopener">
+                Visit aoe4units.com</a>
+              <a class="btn btn-block" href="https://github.com/f2ire/aoe4units" target="_blank" rel="noopener">
+                View on GitHub</a>
+              <h3 class="sidebar-label">Stack</h3>
+              <ul class="project-stack">
+                <li><i class="devicon-react-original colored"></i>React 18</li>
+                <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
+                <li><i class="devicon-vitejs-plain colored"></i>Vite</li>
+                <li><i class="devicon-tailwindcss-original colored"></i>TailwindCSS</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-nav prev">
+      <a class="card-link" href="shen.html" aria-label="Previous project: Shen"></a>
+      <iframe class="proj-nav-frame" src="shen.html" title="Shen preview" loading="lazy" scrolling="no" tabindex="-1"
+        aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir">← Previous</span>
+        <span class="proj-nav-name">Shen</span>
+      </span>
+    </div>
+    <div class="proj-nav next">
+      <a class="card-link" href="iori.html" aria-label="Next project: Iori"></a>
+      <iframe class="proj-nav-frame" src="iori.html" title="Iori preview" loading="lazy" scrolling="no" tabindex="-1"
+        aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir">Next →</span>
+        <span class="proj-nav-name">Iori</span>
+      </span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Yanis · built by hand, no framework.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
