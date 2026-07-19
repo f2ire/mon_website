@@ -442,9 +442,9 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 /* languages as passport stamps */
 .lang-stamps {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 0.9rem 0.8rem;
 }
 
 .lang-stamp {
@@ -480,6 +480,10 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
   outline: 1px solid var(--border);
 }
 .lang-stamp:nth-child(even) .lang-flag { transform: rotate(-8deg); }
+
+@media (max-width: 420px) {
+  .lang-stamps { grid-template-columns: repeat(2, max-content); }
+}
 
 /* teaser stamp for the next language: muted, emoji instead of a flag */
 .lang-stamp-teaser {
@@ -909,6 +913,26 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 .lightbox-prev { left: 1rem; }
 .lightbox-next { right: 1rem; }
 
+.lightbox-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 4.9rem;
+  transform: translateX(-50%);
+  max-width: 80%;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.92);
+  pointer-events: none;
+}
+/* scientific names in italic, set in the site's serif */
+.lightbox-caption.latin {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
 .lightbox-thumbs {
   position: absolute;
   left: 0;
@@ -949,6 +973,11 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
   }
   .lightbox-prev { left: 0.75rem; }
   .lightbox-next { right: 0.75rem; }
+  .lightbox-caption {
+    max-width: 58%;
+    bottom: 5.6rem;
+    font-size: 1.2rem;
+  }
 }
 
 /* ============ Footer ============ */

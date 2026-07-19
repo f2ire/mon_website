@@ -74,95 +74,95 @@
 
         <div class="project-layout">
           <div class="project-detail">
-        <h2>About the project</h2>
-        <p>
-          Writing a paper usually means juggling three tools at once: a reference manager on one
-          side, an editor on the other, and, increasingly, an AI chat that knows nothing about
-          the papers you actually cite. Shen collapses that into a single three-panel desktop
-          workspace: your Zotero library, a LaTeX/Python editor, and an assistant that reads from
-          your own library instead of the open web.
-        </p>
-        <p>
-          The assistant runs <strong>citation-grounded retrieval</strong> (RAG) over your papers,
-          so every answer ships with its sources. The magic moment: clicking a citation jumps the
-          PDF viewer to the exact passage and highlights it in place, down to the bounding box on
-          the page, so you can always trace a claim back to where it comes from. And it stays
-          private: the library, the search index and the retrieval all run on your machine.
-        </p>
+            <h2>About the project</h2>
+            <p>
+              Writing a paper usually means juggling three tools at once: a reference manager on one
+              side, an editor on the other, and, increasingly, an AI chat that knows nothing about
+              the papers you actually cite. Shen collapses that into a single three-panel desktop
+              workspace: your Zotero library, a LaTeX/Python editor, and an assistant that reads from
+              your own library instead of the open web.
+            </p>
+            <p>
+              The assistant runs <strong>citation-grounded retrieval</strong> (RAG) over your papers,
+              so every answer ships with its sources. The magic moment: clicking a citation jumps the
+              PDF viewer to the exact passage and highlights it in place, down to the bounding box on
+              the page, so you can always trace a claim back to where it comes from. And it stays
+              private: the library, the search index and the retrieval all run on your machine.
+            </p>
 
-        <h2>Main features</h2>
-        <ul class="feature-grid">
-          <li>
-            <h3>Three-panel workspace</h3>
-            <p>Bibliography, editor and assistant in one window, modelled on the VS Code
-              interaction you already know.</p>
-          </li>
-          <li>
-            <h3>Zotero, natively</h3>
-            <p>Your library synced through Zotero's official Web API (one-click OAuth), not a
-              fragile database hack, with a built-in PDF reader.</p>
-          </li>
-          <li>
-            <h3>A real editor</h3>
-            <p>LaTeX, Python and text with open/save, syntax support and an integrated terminal,
-              so writing and analysis live side by side.</p>
-          </li>
-          <li>
-            <h3>Grounded AI assistant</h3>
-            <p>Hybrid semantic + keyword search over your papers; bring your own key (Anthropic by
-              default) or run fully offline with a local model.</p>
-          </li>
-          <li>
-            <h3>Clickable citations</h3>
-            <p>Every source jumps to and highlights the exact passage in the PDF, at the right
-              position on the page.</p>
-          </li>
-          <li>
-            <h3>Local-first by design</h3>
-            <p>No account, no cloud store; your papers never leave the machine.</p>
-          </li>
-        </ul>
-
-        <h2>Tech stack</h2>
-        <p>
-          Shen is a <strong>Tauri 2</strong> desktop app: a Rust core for OS access and Zotero
-          sync, a React/TypeScript interface, and a Python service for the retrieval pipeline. The
-          two sides talk only through a typed, versioned contract, so the app and the AI engine
-          evolve independently. Under the hood, retrieval combines a Qdrant vector store with a
-          GROBID pass that extracts page-level coordinates, the basis for those pixel-accurate
-          citation highlights.
-        </p>
-        </div>
-
-        <aside class="project-sidebar">
-          <div class="sidebar-card">
-            <div class="sidebar-meta">
-              <div><span class="k">Year</span><span class="v">2026–now</span></div>
-              <div><span class="k">Type</span><span class="v">Desktop app</span></div>
-              <div><span class="k">Status</span><span class="v">In development</span></div>
-            </div>
-            <a class="btn btn-block" href="https://github.com/shen-industries/shen" target="_blank" rel="noopener">
-              View on GitHub</a>
-            <h3 class="sidebar-label">Stack</h3>
-            <ul class="project-stack">
-              <li><i class="devicon-tauri-original colored"></i>Tauri</li>
-              <li><i class="devicon-rust-original"></i>Rust</li>
-              <li><i class="devicon-react-original colored"></i>React</li>
-              <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
-              <li><i class="devicon-tailwindcss-original colored"></i>Tailwind CSS</li>
-              <li><i class="devicon-python-plain colored"></i>Python</li>
-              <li><i class="devicon-fastapi-plain colored"></i>FastAPI</li>
+            <h2>Main features</h2>
+            <ul class="feature-grid">
+              <li>
+                <h3>Three-panel workspace</h3>
+                <p>Bibliography, editor and assistant in one window, modelled on the VS Code
+                  interaction you already know.</p>
+              </li>
+              <li>
+                <h3>Zotero, natively</h3>
+                <p>Your library synced through Zotero's official Web API (one-click OAuth), not a
+                  fragile database hack, with a built-in PDF reader.</p>
+              </li>
+              <li>
+                <h3>A real editor</h3>
+                <p>LaTeX, Python and text with open/save, syntax support and an integrated terminal,
+                  so writing and analysis live side by side.</p>
+              </li>
+              <li>
+                <h3>Grounded AI assistant</h3>
+                <p>Hybrid semantic + keyword search over your papers; bring your own key (Anthropic by
+                  default) or run fully offline with a local model.</p>
+              </li>
+              <li>
+                <h3>Clickable citations</h3>
+                <p>Every source jumps to and highlights the exact passage in the PDF, at the right
+                  position on the page.</p>
+              </li>
+              <li>
+                <h3>Local-first by design</h3>
+                <p>No account, no cloud store; your papers never leave the machine.</p>
+              </li>
             </ul>
+
+            <h2>Tech stack</h2>
+            <p>
+              Shen is a <strong>Tauri 2</strong> desktop app: a Rust core for OS access and Zotero
+              sync, a React/TypeScript interface, and a Python service for the retrieval pipeline. The
+              two sides talk only through a typed, versioned contract, so the app and the AI engine
+              evolve independently. Under the hood, retrieval combines a Qdrant vector store with a
+              GROBID pass that extracts page-level coordinates, the basis for those pixel-accurate
+              citation highlights.
+            </p>
           </div>
-        </aside>
+
+          <aside class="project-sidebar">
+            <div class="sidebar-card">
+              <div class="sidebar-meta">
+                <div><span class="k">Year</span><span class="v">2026–now</span></div>
+                <div><span class="k">Type</span><span class="v">Desktop app</span></div>
+                <div><span class="k">Status</span><span class="v">In development</span></div>
+              </div>
+              <a class="btn btn-block" href="https://github.com/shen-industries/shen" target="_blank" rel="noopener">
+                View on GitHub</a>
+              <h3 class="sidebar-label">Stack</h3>
+              <ul class="project-stack">
+                <li><i class="devicon-tauri-original colored"></i>Tauri</li>
+                <li><i class="devicon-rust-original"></i>Rust</li>
+                <li><i class="devicon-react-original colored"></i>React</li>
+                <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
+                <li><i class="devicon-tailwindcss-original colored"></i>Tailwind CSS</li>
+                <li><i class="devicon-python-plain colored"></i>Python</li>
+                <li><i class="devicon-fastapi-plain colored"></i>FastAPI</li>
+              </ul>
+            </div>
+          </aside>
         </div>
       </div>
     </div>
 
     <div class="proj-nav prev">
       <a class="card-link" href="iori.html" aria-label="Previous project: Iori"></a>
-      <iframe class="proj-nav-frame" src="iori.html" title="Iori preview" loading="lazy" scrolling="no"
-        tabindex="-1" aria-hidden="true"></iframe>
+      <iframe class="proj-nav-frame" src="iori.html" title="Iori preview" loading="lazy" scrolling="no" tabindex="-1"
+        aria-hidden="true"></iframe>
       <span class="proj-nav-body">
         <span class="proj-nav-dir">← Previous</span>
         <span class="proj-nav-name">Iori</span>
@@ -180,7 +180,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Yanis · built by hand, no framework.</p>
+    <p>© <span id="year"></span> Yanis SINDT-BARET</p>
   </footer>
 
   <div id="lightbox" class="lightbox" hidden>

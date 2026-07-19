@@ -153,6 +153,10 @@ for (const [i, img] of galleryImages.entries()) {
 }
 lightbox.appendChild(thumbStrip);
 
+const captionEl = document.createElement("p");
+captionEl.className = "lightbox-caption";
+lightbox.appendChild(captionEl);
+
 if (galleryImages.length < 2) {
   prevArrow.hidden = nextArrow.hidden = thumbStrip.hidden = true;
 }
@@ -162,6 +166,9 @@ function showPhoto(index) {
   const img = galleryImages[lightboxIndex];
   lightboxImg.src = img.src;
   lightboxImg.alt = img.alt;
+  captionEl.textContent = img.alt;
+  const latinName = /^[A-Z][a-z]+ [a-z]+( & [A-Z][a-z]+ [a-z]+)?$/.test(img.alt);
+  captionEl.classList.toggle("latin", latinName && img.closest(".masonry") !== null);
   for (const [i, thumb] of [...thumbStrip.children].entries()) {
     thumb.classList.toggle("active", i === lightboxIndex);
   }
