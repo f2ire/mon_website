@@ -85,6 +85,33 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// ============ Mobile hamburger menu ============
+const burger = document.getElementById("nav-burger");
+const navLinks = document.getElementById("nav-links");
+
+function closeNav() {
+  if (!burger) return;
+  navLinks.classList.remove("open");
+  burger.setAttribute("aria-expanded", "false");
+}
+
+if (burger && navLinks) {
+  burger.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(open));
+  });
+
+  // close after picking a section, or when tapping outside the menu
+  for (const link of navLinks.querySelectorAll("a")) {
+    link.addEventListener("click", closeNav);
+  }
+  document.addEventListener("click", (e) => {
+    if (navLinks.classList.contains("open") && !navLinks.contains(e.target) && !burger.contains(e.target)) {
+      closeNav();
+    }
+  });
+}
+
 // ============ Solid header once past the hero photo ============
 const header = document.getElementById("site-header");
 // pages without the full-screen hero keep the header solid at all times
@@ -199,7 +226,10 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") showPhoto(lightboxIndex + 1);
     if (e.key === "Escape") closeLightbox();
   }
-  if (e.key === "Escape") closeSeasonMenu();
+  if (e.key === "Escape") {
+    closeSeasonMenu();
+    closeNav();
+  }
 });
 
 // ============ Footer year ============

@@ -97,6 +97,7 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 }
 
 .nav {
+  position: relative; /* anchors the mobile dropdown */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -123,11 +124,21 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 .nav-logo:hover { text-decoration: none; color: var(--accent-warm); }
 
 .nav-links {
-  position: relative; /* anchors the season picker */
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  margin-left: auto;
 }
+
+.nav-right {
+  position: relative; /* anchors the season picker */
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-left: 1.5rem;
+}
+
+.nav-burger { display: none; }
 
 .nav-links a {
   color: rgba(255, 255, 255, 0.85);
@@ -195,6 +206,67 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 [data-theme="summer"] .icon-summer,
 [data-theme="autumn"] .icon-autumn,
 [data-theme="winter"] .icon-winter { display: block; }
+
+/* ---- Mobile nav : hamburger + dropdown ---- */
+@media (max-width: 720px) {
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+    transition: transform 0.3s, opacity 0.3s, background 0.3s;
+  }
+  .site-header.scrolled .nav-burger span { background: var(--text); }
+  .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    margin: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-width: 190px;
+    padding: 0.4rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .nav-links.open {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .nav-links a,
+  .site-header.scrolled .nav-links a {
+    color: var(--text);
+    padding: 0.65rem 0.9rem;
+    border-radius: 0.55rem;
+    font-size: 1rem;
+  }
+  .nav-links a:hover { background: var(--bg-alt); color: var(--accent-warm); }
+}
 
 /* falling petals / leaves / snow */
 #season-canvas {
