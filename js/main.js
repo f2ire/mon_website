@@ -228,6 +228,7 @@ document.addEventListener("keydown", (e) => {
   }
   if (e.key === "Escape") {
     closeSeasonMenu();
+    closeLangMenu();
     closeNav();
   }
 });

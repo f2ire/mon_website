@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yanis · Software Developer</title>
+  <title data-i18n="index.title">Yanis · Software Developer</title>
   <meta name="description"
     content="Portfolio of Yanis, software developer. Technologies, experience, projects and wildlife photography.">
   <meta property="og:type" content="website">
@@ -26,16 +26,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body data-i18n-title="index.title">
 
   <header class="site-header" id="site-header">
     <nav class="nav container">
       <a href="#top" class="nav-logo"><img src="assets/favicon.png" alt="">Yanis</a>
       <div class="nav-links" id="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#photography">Photography</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#photography" data-i18n="nav.photography">Photography</a>
       </div>
       <div class="nav-right">
         <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
@@ -43,6 +43,10 @@
           <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
           <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
           <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+        <button id="lang-toggle" class="theme-toggle lang-toggle" aria-label="Change language">
+          <span class="lang-icon icon-en" aria-hidden="true">🇬🇧</span>
+          <span class="lang-icon icon-fr" aria-hidden="true">🇫🇷</span>
         </button>
         <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false"
           aria-controls="nav-links">
@@ -60,7 +64,7 @@
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-name">Yanis SINDT-BARET</h1>
-        <p class="hero-title">Software Developer</p>
+        <p class="hero-title" data-i18n="hero.title">Software Developer</p>
         <div class="hero-links">
           <a href="https://github.com/f2ire" target="_blank" rel="noopener" aria-label="GitHub">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -82,7 +86,7 @@
             </svg>
           </a>
         </div>
-        <a href="#projects" class="hero-cta">See portfolio</a>
+        <a href="#projects" class="hero-cta" data-i18n="hero.cta">See portfolio</a>
       </div>
       <a href="#about" class="hero-scroll" aria-label="Scroll down">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"
@@ -95,35 +99,35 @@
     <!-- ============ ABOUT ME (bio + education) ============ -->
     <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-i18n="about.title">About Me</h2>
         <div class="about-grid">
           <div class="about-photo-col">
             <figure class="about-photo polaroid">
               <img src="photo/me.jpg" alt="Yanis watching the sunrise from the summit of Mount Fuji">
-              <figcaption>Sunrise from the top of Mt. Fuji, 3,776 m</figcaption>
+              <figcaption data-i18n="about.photoCaption">Sunrise from the top of Mt. Fuji, 3,776 m</figcaption>
             </figure>
-            <a href="assets/resume.pdf" class="btn-resume" download>
+            <a href="assets/resume.pdf" class="btn-resume" data-i18n-href="about.cvHref" download>
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
               </svg>
-              Download CV
+              <span data-i18n="about.cvButton">Download CV</span>
             </a>
           </div>
           <div class="about-bio">
-            <p>
+            <p data-i18n="about.bio1">
               I'm Yanis, a software engineer based in Toulon, France. I've always been passionate about animals, and
               that's how I came to code, through biology: after starting a degree in the field, I moved to INSA Lyon to
               study computer science, then spent a year at Sanofi building software for vaccine research. That's where I
               figured out what I like building: backend work and tools that feel finished, that answer a real need
               rather than existing for their own sake.
             </p>
-            <p>
+            <p data-i18n="about.bio2">
               During engineering school I also discovered Japan. I started learning the language, moved there for an
               exchange semester, and after graduating went back to dive deeper into the culture and push my Japanese
               further, shipping personal projects along the way.
             </p>
-            <p>
+            <p data-i18n="about.bio3">
               Outside of code, as you'd guess from the animal thing, I'm a wildlife photographer. You'll find some of my
               shots further down the page. I'm also a big fan of everything strategy-related, from video games to board
               games, and even team sports like volleyball.
@@ -131,24 +135,24 @@
           </div>
           <div class="about-education">
             <div class="about-block">
-              <h3 class="about-subtitle">Education</h3>
+              <h3 class="about-subtitle" data-i18n="about.eduTitle">Education</h3>
               <div class="edu-item reveal">
                 <span class="edu-date">2021–2024</span>
-                <h4 class="edu-degree">Master of Engineering, INSA Lyon (National Institute of Applied Sciences)</h4>
-                <p class="edu-desc">Computer Science and Data, with a bioinformatics specialization.</p>
+                <h4 class="edu-degree" data-i18n="about.edu1Degree">Master of Engineering, INSA Lyon (National Institute of Applied Sciences)</h4>
+                <p class="edu-desc" data-i18n="about.edu1Desc">Computer Science and Data, with a bioinformatics specialization.</p>
               </div>
               <div class="edu-item reveal">
                 <span class="edu-date">2023</span>
-                <h4 class="edu-degree">Master of Engineering, Kobe University (Japan)</h4>
-                <p class="edu-desc">Six-month university exchange in the Master of System Informatics.</p>
+                <h4 class="edu-degree" data-i18n="about.edu2Degree">Master of Engineering, Kobe University (Japan)</h4>
+                <p class="edu-desc" data-i18n="about.edu2Desc">Six-month university exchange in the Master of System Informatics.</p>
               </div>
               <div class="edu-item reveal">
                 <span class="edu-date">2018-2021</span>
-                <h4 class="edu-degree">Bachelor of Science, University of Toulon</h4>
+                <h4 class="edu-degree" data-i18n="about.edu3Degree">Bachelor of Science, University of Toulon</h4>
               </div>
             </div>
             <div class="about-block">
-              <h3 class="about-subtitle">Languages</h3>
+              <h3 class="about-subtitle" data-i18n="about.langTitle">Languages</h3>
               <ul class="lang-stamps reveal">
                 <li class="lang-stamp">
                   <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true">
@@ -157,7 +161,7 @@
                     <rect x="2" width="1" height="2" fill="#EF4135" />
                   </svg>
                   <span class="lang-hello">Français</span>
-                  <span class="lang-level">Native</span>
+                  <span class="lang-level" data-i18n="lang.native">Native</span>
                 </li>
                 <li class="lang-stamp">
                   <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true">
@@ -168,7 +172,7 @@
                     <path d="M1.5 0 V2 M0 1 H3" stroke="#C8102E" stroke-width="0.4" />
                   </svg>
                   <span class="lang-hello">English</span>
-                  <span class="lang-level">Fluent</span>
+                  <span class="lang-level" data-i18n="lang.fluent">Fluent</span>
                 </li>
                 <li class="lang-stamp">
                   <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true">
@@ -176,7 +180,7 @@
                     <circle cx="1.5" cy="1" r="0.6" fill="#BC002D" />
                   </svg>
                   <span class="lang-hello" lang="ja">日本語</span>
-                  <span class="lang-level">Conversational</span>
+                  <span class="lang-level" data-i18n="lang.conversational">Conversational</span>
                 </li>
                 <li class="lang-stamp">
                   <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true">
@@ -184,12 +188,12 @@
                     <rect y="0.5" width="3" height="1" fill="#F1BF00" />
                   </svg>
                   <span class="lang-hello">Español</span>
-                  <span class="lang-level">Basics</span>
+                  <span class="lang-level" data-i18n="lang.basics">Basics</span>
                 </li>
                 <li class="lang-stamp lang-stamp-teaser">
                   <span class="lang-flag lang-flag-emoji" aria-hidden="true">👀</span>
-                  <span class="lang-hello">Incoming?</span>
-                  <span class="lang-level">Soon…</span>
+                  <span class="lang-hello" data-i18n="lang.incoming">Incoming?</span>
+                  <span class="lang-level" data-i18n="lang.soon">Soon…</span>
                 </li>
               </ul>
             </div>
@@ -201,7 +205,7 @@
     <!-- ============ PROJECTS ============ -->
     <section id="projects" class="section section-alt">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title" data-i18n="projects.title">Projects</h2>
 
         <div class="project-grid">
 
@@ -220,8 +224,8 @@
               </div>
             </div>
             <div class="project-body">
-              <h3 class="project-name">Shen <span class="project-date">2026–now</span></h3>
-              <p class="project-desc">
+              <h3 class="project-name">Shen <span class="project-date" data-i18n="shen.yearRange">2026–now</span></h3>
+              <p class="project-desc" data-i18n="project.shen.desc">
                 A local-first research IDE built with Tauri and React, pairing your Zotero library with a LaTeX/code
                 editor and a private AI assistant. It does citation-grounded RAG over your papers, with clickable
                 citations that jump to and highlight the exact source passage in the PDF.
@@ -259,8 +263,8 @@
               </div>
             </div>
             <div class="project-body">
-              <h3 class="project-name"> AoE4 Units <span class="project-date">2025–now</span></h3>
-              <p class="project-desc">
+              <h3 class="project-name"> AoE4 Units <span class="project-date" data-i18n="aoe4.yearRange">2025–now</span></h3>
+              <p class="project-desc" data-i18n="project.aoe4.desc">
                 An educational combat-analysis tool for Age of Empires IV. Compare any two units side by side with a
                 full battle simulation. A companion Twitch extension lets viewers run these matchups live during
                 streams, right on the channel overlay.
@@ -288,8 +292,8 @@
               </div>
             </div>
             <div class="project-body">
-              <h3 class="project-name">Iori <span class="project-date">2026–now</span></h3>
-              <p class="project-desc">
+              <h3 class="project-name">Iori <span class="project-date" data-i18n="iori.yearRange">2026–now</span></h3>
+              <p class="project-desc" data-i18n="project.iori.desc">
                 A browser extension paired with a local Python backend that interrupts endless social-media scrolling
                 with Japanese flashcard overlays. It uses a spaced-repetition system (SM-2) to schedule reviews.
               </p>
@@ -311,19 +315,19 @@
     <!-- ============ EXPERIENCE (professional) ============ -->
     <section id="experience" class="section">
       <div class="container">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title" data-i18n="experience.title">Experience</h2>
         <div class="timeline">
           <div class="timeline-item reveal">
             <span class="timeline-date">2023–2024</span>
-            <h3 class="timeline-role">Software Engineer, Sanofi</h3>
+            <h3 class="timeline-role" data-i18n="experience.role">Software Engineer, Sanofi</h3>
             <ul class="timeline-desc timeline-bullets">
-              <li>Took over an internal vaccine-research application: fixed its bugs, refactored the codebase and
+              <li data-i18n="experience.bullet1">Took over an internal vaccine-research application: fixed its bugs, refactored the codebase and
                 handled its deployment on AWS, letting research teams expand what they could do with it.</li>
-              <li>Designed and managed a custom SQL database, cutting query execution time by 90% on user-specific
+              <li data-i18n="experience.bullet2">Designed and managed a custom SQL database, cutting query execution time by 90% on user-specific
                 requests, and built the REST APIs and CRUD interfaces used to work with the data.</li>
-              <li>Developed Python ETL pipelines orchestrated with Snakemake to answer biologists' requests, then
+              <li data-i18n="experience.bullet3">Developed Python ETL pipelines orchestrated with Snakemake to answer biologists' requests, then
                 deployed them and trained the teams to use them.</li>
-              <li>Brought DevOps practices into the project (automated testing with pytest, CI, Git, Docker) while
+              <li data-i18n="experience.bullet4">Brought DevOps practices into the project (automated testing with pytest, CI, Git, Docker) while
                 working day to day in a French-American Agile team, in French and English.</li>
             </ul>
           </div>
@@ -334,7 +338,7 @@
     <!-- ============ TECHNOLOGIES ============ -->
     <section id="technologies" class="section section-alt">
       <div class="container">
-        <h2 class="section-title">Technologies</h2>
+        <h2 class="section-title" data-i18n="technologies.title">Technologies</h2>
         <div class="tech-grid">
           <div class="tech-item reveal">
             <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" aria-hidden="true">
@@ -493,7 +497,7 @@
     <!-- ============ PHOTOGRAPHY ============ -->
     <section id="photography" class="section">
       <div class="container">
-        <h2 class="section-title">Wildlife Photography</h2>
+        <h2 class="section-title" data-i18n="photography.title">Wildlife Photography</h2>
         <div class="masonry">
           <figure class="masonry-item reveal">
             <img src="assets/photos/faucon_crescerelle.JPG" alt="Falco tinnunculus" loading="lazy">
@@ -572,6 +576,7 @@
     <img src="" alt="">
   </div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 

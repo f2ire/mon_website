@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shen · Yanis</title>
+  <title data-i18n="shen.title">Shen · Yanis</title>
   <meta name="description"
     content="Shen: a local-first research IDE pairing a Zotero library, a LaTeX/Python editor and a private, citation-grounded AI assistant that jumps to the exact source passage in your PDFs.">
   <meta property="og:type" content="website">
@@ -26,16 +26,16 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="solid-header">
+<body class="solid-header" data-i18n-title="shen.title">
 
   <header class="site-header" id="site-header">
     <nav class="nav container">
       <a href="../index.html" class="nav-logo"><img src="../assets/favicon.png" alt="">Yanis</a>
       <div class="nav-links" id="nav-links">
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#experience">Experience</a>
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#photography">Photography</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">Projects</a>
+        <a href="../index.html#experience" data-i18n="nav.experience">Experience</a>
+        <a href="../index.html#about" data-i18n="nav.about">About</a>
+        <a href="../index.html#photography" data-i18n="nav.photography">Photography</a>
       </div>
       <div class="nav-right">
         <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
@@ -43,6 +43,10 @@
           <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
           <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
           <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+        <button id="lang-toggle" class="theme-toggle lang-toggle" aria-label="Change language">
+          <span class="lang-icon icon-en" aria-hidden="true">🇬🇧</span>
+          <span class="lang-icon icon-fr" aria-hidden="true">🇫🇷</span>
         </button>
         <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false"
           aria-controls="nav-links">
@@ -62,20 +66,20 @@
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Back to projects
+          <span data-i18n="common.backToProjects">Back to projects</span>
         </a>
 
-        <p class="project-eyebrow">Personal project · 2026–now</p>
+        <p class="project-eyebrow" data-i18n="shen.eyebrow">Personal project · 2026–now</p>
         <h1 class="project-title">Shen</h1>
-        <p class="project-tagline">
+        <p class="project-tagline" data-i18n="shen.tagline">
           A local-first research IDE for scientists: one desktop app pairing your Zotero
           library, a LaTeX/Python editor and a private AI assistant that answers straight from
           your own papers, with sources you can click back to.
         </p>
         <div class="project-meta">
-          <span class="meta-chip">Desktop app</span>
-          <span class="meta-chip">Local-first</span>
-          <span class="meta-chip">AI / RAG</span>
+          <span class="meta-chip" data-i18n="shen.meta1">Desktop app</span>
+          <span class="meta-chip" data-i18n="shen.meta2">Local-first</span>
+          <span class="meta-chip" data-i18n="shen.meta3">AI / RAG</span>
         </div>
       </div>
     </section>
@@ -90,15 +94,15 @@
 
         <div class="project-layout">
           <div class="project-detail">
-            <h2>About the project</h2>
-            <p>
+            <h2 data-i18n="common.aboutProject">About the project</h2>
+            <p data-i18n="shen.p1">
               Writing a paper usually means juggling three tools at once: a reference manager on one
               side, an editor on the other, and, increasingly, an AI chat that knows nothing about
               the papers you actually cite. Shen collapses that into a single three-panel desktop
               workspace: your Zotero library, a LaTeX/Python editor, and an assistant that reads from
               your own library instead of the open web.
             </p>
-            <p>
+            <p data-i18n-html="shen.p2">
               The assistant runs <strong>citation-grounded retrieval</strong> (RAG) over your papers,
               so every answer ships with its sources. The magic moment: clicking a citation jumps the
               PDF viewer to the exact passage and highlights it in place, down to the bounding box on
@@ -106,41 +110,41 @@
               private: the library, the search index and the retrieval all run on your machine.
             </p>
 
-            <h2>Main features</h2>
+            <h2 data-i18n="common.mainFeatures">Main features</h2>
             <ul class="feature-grid">
               <li>
-                <h3>Three-panel workspace</h3>
-                <p>Bibliography, editor and assistant in one window, modelled on the VS Code
+                <h3 data-i18n="shen.feature1Title">Three-panel workspace</h3>
+                <p data-i18n="shen.feature1Desc">Bibliography, editor and assistant in one window, modelled on the VS Code
                   interaction you already know.</p>
               </li>
               <li>
-                <h3>Zotero, natively</h3>
-                <p>Your library synced through Zotero's official Web API (one-click OAuth), not a
+                <h3 data-i18n="shen.feature2Title">Zotero, natively</h3>
+                <p data-i18n="shen.feature2Desc">Your library synced through Zotero's official Web API (one-click OAuth), not a
                   fragile database hack, with a built-in PDF reader.</p>
               </li>
               <li>
-                <h3>A real editor</h3>
-                <p>LaTeX, Python and text with open/save, syntax support and an integrated terminal,
+                <h3 data-i18n="shen.feature3Title">A real editor</h3>
+                <p data-i18n="shen.feature3Desc">LaTeX, Python and text with open/save, syntax support and an integrated terminal,
                   so writing and analysis live side by side.</p>
               </li>
               <li>
-                <h3>Grounded AI assistant</h3>
-                <p>Hybrid semantic + keyword search over your papers; bring your own key (Anthropic by
+                <h3 data-i18n="shen.feature4Title">Grounded AI assistant</h3>
+                <p data-i18n="shen.feature4Desc">Hybrid semantic + keyword search over your papers; bring your own key (Anthropic by
                   default) or run fully offline with a local model.</p>
               </li>
               <li>
-                <h3>Clickable citations</h3>
-                <p>Every source jumps to and highlights the exact passage in the PDF, at the right
+                <h3 data-i18n="shen.feature5Title">Clickable citations</h3>
+                <p data-i18n="shen.feature5Desc">Every source jumps to and highlights the exact passage in the PDF, at the right
                   position on the page.</p>
               </li>
               <li>
-                <h3>Local-first by design</h3>
-                <p>No account, no cloud store; your papers never leave the machine.</p>
+                <h3 data-i18n="shen.feature6Title">Local-first by design</h3>
+                <p data-i18n="shen.feature6Desc">No account, no cloud store; your papers never leave the machine.</p>
               </li>
             </ul>
 
-            <h2>Tech stack</h2>
-            <p>
+            <h2 data-i18n="common.techStack">Tech stack</h2>
+            <p data-i18n-html="shen.techP">
               Shen is a <strong>Tauri 2</strong> desktop app: a Rust core for OS access and Zotero
               sync, a React/TypeScript interface, and a Python service for the retrieval pipeline. The
               two sides talk only through a typed, versioned contract, so the app and the AI engine
@@ -153,13 +157,13 @@
           <aside class="project-sidebar">
             <div class="sidebar-card">
               <div class="sidebar-meta">
-                <div><span class="k">Year</span><span class="v">2026–now</span></div>
-                <div><span class="k">Type</span><span class="v">Desktop app</span></div>
-                <div><span class="k">Status</span><span class="v">In development</span></div>
+                <div><span class="k" data-i18n="common.year">Year</span><span class="v" data-i18n="shen.yearRange">2026–now</span></div>
+                <div><span class="k" data-i18n="common.type">Type</span><span class="v" data-i18n="shen.meta1">Desktop app</span></div>
+                <div><span class="k" data-i18n="common.status">Status</span><span class="v" data-i18n="common.statusDev">In development</span></div>
               </div>
               <a class="btn btn-block" href="https://github.com/shen-industries/shen" target="_blank" rel="noopener">
-                View on GitHub</a>
-              <h3 class="sidebar-label">Stack</h3>
+                <span data-i18n="common.viewGithub">View on GitHub</span></a>
+              <h3 class="sidebar-label" data-i18n="common.stack">Stack</h3>
               <ul class="project-stack">
                 <li><i class="devicon-tauri-original colored"></i>Tauri</li>
                 <li><i class="devicon-rust-original"></i>Rust</li>
@@ -180,7 +184,7 @@
       <iframe class="proj-nav-frame" src="iori.html" title="Iori preview" loading="lazy" scrolling="no" tabindex="-1"
         aria-hidden="true"></iframe>
       <span class="proj-nav-body">
-        <span class="proj-nav-dir">← Previous</span>
+        <span class="proj-nav-dir" data-i18n="common.previous">← Previous</span>
         <span class="proj-nav-name">Iori</span>
       </span>
     </div>
@@ -189,7 +193,7 @@
       <iframe class="proj-nav-frame" src="aoe4units.html" title="AoE4 Units preview" loading="lazy" scrolling="no"
         tabindex="-1" aria-hidden="true"></iframe>
       <span class="proj-nav-body">
-        <span class="proj-nav-dir">Next →</span>
+        <span class="proj-nav-dir" data-i18n="common.next">Next →</span>
         <span class="proj-nav-name">AoE4 Units</span>
       </span>
     </div>
@@ -204,6 +208,7 @@
     <img src="" alt="">
   </div>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 

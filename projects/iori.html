@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iori · Yanis</title>
+  <title data-i18n="iori.title">Iori · Yanis</title>
   <meta name="description"
     content="Iori: a browser extension that interrupts endless scrolling with Japanese flashcards, backed by a local Python spaced-repetition backend.">
   <meta property="og:type" content="website">
@@ -26,16 +26,16 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="solid-header">
+<body class="solid-header" data-i18n-title="iori.title">
 
   <header class="site-header" id="site-header">
     <nav class="nav container">
       <a href="../index.html" class="nav-logo"><img src="../assets/favicon.png" alt="">Yanis</a>
       <div class="nav-links" id="nav-links">
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#experience">Experience</a>
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#photography">Photography</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">Projects</a>
+        <a href="../index.html#experience" data-i18n="nav.experience">Experience</a>
+        <a href="../index.html#about" data-i18n="nav.about">About</a>
+        <a href="../index.html#photography" data-i18n="nav.photography">Photography</a>
       </div>
       <div class="nav-right">
         <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
@@ -43,6 +43,10 @@
           <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
           <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
           <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+        <button id="lang-toggle" class="theme-toggle lang-toggle" aria-label="Change language">
+          <span class="lang-icon icon-en" aria-hidden="true">🇬🇧</span>
+          <span class="lang-icon icon-fr" aria-hidden="true">🇫🇷</span>
         </button>
         <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false"
           aria-controls="nav-links">
@@ -62,21 +66,21 @@
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Back to projects
+          <span data-i18n="common.backToProjects">Back to projects</span>
         </a>
 
-        <p class="project-eyebrow">Personal project · 2026–now</p>
+        <p class="project-eyebrow" data-i18n="iori.eyebrow">Personal project · 2026–now</p>
         <h1 class="project-title">Iori</h1>
-        <p class="project-tagline">
+        <p class="project-tagline" data-i18n="iori.tagline">
           A browser extension that turns doomscrolling into Japanese practice: when a feed pulls you
           under, it surfaces a flashcard over the page: a small refuge to step into for a moment,
           scheduled by a spaced-repetition engine and served entirely from your own machine.
         </p>
         <div class="project-meta">
-          <span class="meta-chip">Browser extension</span>
-          <span class="meta-chip">Japanese learning</span>
-          <span class="meta-chip">Spaced repetition</span>
-          <span class="meta-chip">Local-first</span>
+          <span class="meta-chip" data-i18n="iori.meta1">Browser extension</span>
+          <span class="meta-chip" data-i18n="iori.meta2">Japanese learning</span>
+          <span class="meta-chip" data-i18n="iori.meta3">Spaced repetition</span>
+          <span class="meta-chip" data-i18n="iori.meta4">Local-first</span>
         </div>
       </div>
     </section>
@@ -90,20 +94,20 @@
 
         <div class="project-layout">
           <div class="project-detail">
-            <h2>About the project</h2>
-            <p>
+            <h2 data-i18n="common.aboutProject">About the project</h2>
+            <p data-i18n="iori.p1">
               Iori started from a simple observation: the time lost scrolling social feeds could go
               into learning Japanese instead. An attention state machine watches how long you dwell on
               a distraction site and, at the right moment, slides a flashcard over the page. Swipe up to
               dismiss, swipe down to delete the card, or grade it and drop back into your feed.
             </p>
-            <p>
+            <p data-i18n-html="iori.p2">
               The name carries the idea. 庵 (<em>iori</em>) is a hermitage, the small thatched hut a
               poet retreats to, not a temple you visit. The feed is the 沼 (<em>numa</em>), the swamp
               you sink into; the 庵 is what surfaces. So a card is designed as a refuge, never an alarm:
               quiet copy, falling sakura petals, no streaks, no red badges, no guilt.
             </p>
-            <p>
+            <p data-i18n-html="iori.p3">
               Reviews are scheduled with the SM-2 spaced-repetition algorithm, the same family Anki uses:
               cards you know come back later, cards you miss come back soon. All the logic lives in a
               local Python backend built as a pure, fully tested core. The Manifest&nbsp;V3 extension
@@ -112,42 +116,42 @@
               to <code>127.0.0.1</code>: no account, no cloud, no telemetry.
             </p>
 
-            <h2>Main features</h2>
+            <h2 data-i18n="common.mainFeatures">Main features</h2>
             <ul class="feature-grid">
               <li>
-                <h3>Scroll interruption</h3>
-                <p>An attention state machine tracks time spent on distraction sites and pops a card at
+                <h3 data-i18n="iori.feature1Title">Scroll interruption</h3>
+                <p data-i18n="iori.feature1Desc">An attention state machine tracks time spent on distraction sites and pops a card at
                   the right moment, with cooldowns, snoozes and a daily quota so it never nags.</p>
               </li>
               <li>
-                <h3>SM-2 scheduling</h3>
-                <p>Spaced repetition in the Anki family: known cards come back later, missed ones
+                <h3 data-i18n="iori.feature2Title">SM-2 scheduling</h3>
+                <p data-i18n="iori.feature2Desc">Spaced repetition in the Anki family: known cards come back later, missed ones
                   come back soon, on a card-by-card interval.</p>
               </li>
               <li>
-                <h3>Add words as you browse</h3>
-                <p>Select any word, Japanese or English, and add it from the right-click menu. It
+                <h3 data-i18n="iori.feature3Title">Add words as you browse</h3>
+                <p data-i18n="iori.feature3Desc">Select any word, Japanese or English, and add it from the right-click menu. It
                   resolves through the local dictionary, falling back to a keyless online translator
                   when needed.</p>
               </li>
               <li>
-                <h3>Bundled JLPT decks</h3>
-                <p>Ready-made N5–N1 decks (8,000+ cards) you can load in a click, on top of any words
+                <h3 data-i18n="iori.feature4Title">Bundled JLPT decks</h3>
+                <p data-i18n="iori.feature4Desc">Ready-made N5–N1 decks (8,000+ cards) you can load in a click, on top of any words
                   you mine yourself.</p>
               </li>
               <li>
-                <h3>Local Japanese dictionary</h3>
-                <p>A JMdict database compiled to SQLite, with English and French glosses and
+                <h3 data-i18n="iori.feature5Title">Local Japanese dictionary</h3>
+                <p data-i18n="iori.feature5Desc">A JMdict database compiled to SQLite, with English and French glosses and
                   frequency-based ranking so the words that matter surface first.</p>
               </li>
               <li>
-                <h3>100% local &amp; private</h3>
-                <p>Flask backend and local storage on your own machine: bound to loopback only, no
+                <h3 data-i18n="iori.feature6Title">100% local &amp; private</h3>
+                <p data-i18n="iori.feature6Desc">Flask backend and local storage on your own machine: bound to loopback only, no
                   account, no cloud, no telemetry.</p>
               </li>
             </ul>
 
-            <h2>Screenshots</h2>
+            <h2 data-i18n="iori.screenshotsH2">Screenshots</h2>
             <div class="project-gallery">
               <figure>
                 <img src="../assets/projects/iori_menu.png" alt="Iori: extension menu">
@@ -157,8 +161,8 @@
               </figure>
             </div>
 
-            <h2>Tech stack</h2>
-            <p>
+            <h2 data-i18n="common.techStack">Tech stack</h2>
+            <p data-i18n-html="iori.techP">
               A TypeScript Manifest&nbsp;V3 extension (Chromium and Firefox) renders the overlay in a
               Shadow DOM and forwards every browser event to a local Python / Flask backend. The core
               (the attention machine and the SM-2 engine) is written as pure, side-effect-free functions
@@ -171,13 +175,13 @@
           <aside class="project-sidebar">
             <div class="sidebar-card">
               <div class="sidebar-meta">
-                <div><span class="k">Year</span><span class="v">2026–now</span></div>
-                <div><span class="k">Type</span><span class="v">Browser extension</span></div>
-                <div><span class="k">Status</span><span class="v">Live</span></div>
+                <div><span class="k" data-i18n="common.year">Year</span><span class="v" data-i18n="iori.yearRange">2026–now</span></div>
+                <div><span class="k" data-i18n="common.type">Type</span><span class="v" data-i18n="iori.meta1">Browser extension</span></div>
+                <div><span class="k" data-i18n="common.status">Status</span><span class="v" data-i18n="common.statusLive">Live</span></div>
               </div>
               <a class="btn btn-block" href="https://github.com/f2ire/iori" target="_blank" rel="noopener">
-                View on GitHub</a>
-              <h3 class="sidebar-label">Stack</h3>
+                <span data-i18n="common.viewGithub">View on GitHub</span></a>
+              <h3 class="sidebar-label" data-i18n="common.stack">Stack</h3>
               <ul class="project-stack">
                 <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
                 <li><i class="devicon-python-plain colored"></i>Python</li>
@@ -195,7 +199,7 @@
       <iframe class="proj-nav-frame" src="aoe4units.html" title="AoE4 Units preview" loading="lazy" scrolling="no"
         tabindex="-1" aria-hidden="true"></iframe>
       <span class="proj-nav-body">
-        <span class="proj-nav-dir">← Previous</span>
+        <span class="proj-nav-dir" data-i18n="common.previous">← Previous</span>
         <span class="proj-nav-name">AoE4 Units</span>
       </span>
     </div>
@@ -204,7 +208,7 @@
       <iframe class="proj-nav-frame" src="shen.html" title="Shen preview" loading="lazy" scrolling="no" tabindex="-1"
         aria-hidden="true"></iframe>
       <span class="proj-nav-body">
-        <span class="proj-nav-dir">Next →</span>
+        <span class="proj-nav-dir" data-i18n="common.next">Next →</span>
         <span class="proj-nav-name">Shen</span>
       </span>
     </div>
@@ -219,6 +223,7 @@
     <img src="" alt="">
   </div>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 

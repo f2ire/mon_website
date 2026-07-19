@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AoE4 Units · Yanis</title>
+  <title data-i18n="aoe4.title">AoE4 Units · Yanis</title>
   <meta name="description"
     content="AoE4 Units: an educational combat-analysis tool for Age of Empires IV, with a full battle simulation and a companion Twitch extension.">
   <meta property="og:type" content="website">
@@ -26,16 +26,16 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="solid-header">
+<body class="solid-header" data-i18n-title="aoe4.title">
 
   <header class="site-header" id="site-header">
     <nav class="nav container">
       <a href="../index.html" class="nav-logo"><img src="../assets/favicon.png" alt="">Yanis</a>
       <div class="nav-links" id="nav-links">
-        <a href="../index.html#projects">Projects</a>
-        <a href="../index.html#experience">Experience</a>
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#photography">Photography</a>
+        <a href="../index.html#projects" data-i18n="nav.projects">Projects</a>
+        <a href="../index.html#experience" data-i18n="nav.experience">Experience</a>
+        <a href="../index.html#about" data-i18n="nav.about">About</a>
+        <a href="../index.html#photography" data-i18n="nav.photography">Photography</a>
       </div>
       <div class="nav-right">
         <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
@@ -43,6 +43,10 @@
           <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
           <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
           <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+        <button id="lang-toggle" class="theme-toggle lang-toggle" aria-label="Change language">
+          <span class="lang-icon icon-en" aria-hidden="true">🇬🇧</span>
+          <span class="lang-icon icon-fr" aria-hidden="true">🇫🇷</span>
         </button>
         <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false"
           aria-controls="nav-links">
@@ -62,19 +66,19 @@
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Back to projects
+          <span data-i18n="common.backToProjects">Back to projects</span>
         </a>
 
-        <p class="project-eyebrow">Personal project · 2025–now</p>
+        <p class="project-eyebrow" data-i18n="aoe4.eyebrow">Personal project · 2025–now</p>
         <h1 class="project-title">AoE4 Units</h1>
-        <p class="project-tagline">
+        <p class="project-tagline" data-i18n="aoe4.tagline">
           An educational combat-analysis tool for Age of Empires IV: compare any two units side by
           side with a full battle simulation, on the web or live on Twitch.
         </p>
         <div class="project-meta">
-          <span class="meta-chip">Web app</span>
-          <span class="meta-chip">Twitch extension</span>
-          <span class="meta-chip">Game data</span>
+          <span class="meta-chip" data-i18n="aoe4.meta1">Web app</span>
+          <span class="meta-chip" data-i18n="aoe4.meta2">Twitch extension</span>
+          <span class="meta-chip" data-i18n="aoe4.meta3">Game data</span>
         </div>
       </div>
     </section>
@@ -89,8 +93,8 @@
 
         <div class="project-layout">
           <div class="project-detail">
-            <h2>About the project</h2>
-            <p>
+            <h2 data-i18n="common.aboutProject">About the project</h2>
+            <p data-i18n="aoe4.p1">
               I've been playing the Age of Empires series for as long as I can remember, and AoE4 is the
               one I keep coming back to. Like a lot of players I kept hitting the same wall: who actually
               wins a fight is rarely obvious from the stat card. Melee and ranged armor shave a flat
@@ -99,7 +103,7 @@
               again. The community had spreadsheets and wikis, but nothing that just answered the
               question in a couple of clicks, so I built it.
             </p>
-            <p>
+            <p data-i18n="aoe4.p2">
               AoE4 Units settles the matchup by simulating the fight itself: pick any two units, set
               their Age and upgrades, and watch it resolve down to who is left standing. The numbers are
               never hand-entered: a data-driven pipeline rebuilds every unit's stats from the game's
@@ -110,42 +114,42 @@
               viewers can run their own matchups live on the stream overlay.
             </p>
 
-            <h2>Main features</h2>
+            <h2 data-i18n="common.mainFeatures">Main features</h2>
             <ul class="feature-grid">
               <li>
-                <h3>Any unit, any upgrade</h3>
-                <p>Side-by-side comparison of any two units, at any Age, with technologies and
+                <h3 data-i18n="aoe4.feature1Title">Any unit, any upgrade</h3>
+                <p data-i18n="aoe4.feature1Desc">Side-by-side comparison of any two units, at any Age, with technologies and
                   abilities toggled on and off.</p>
               </li>
               <li>
-                <h3>A real fight, not a stat sheet</h3>
-                <p>Attack cadence, melee and ranged armor, bonus damage, charges and healing all play
+                <h3 data-i18n="aoe4.feature2Title">A real fight, not a stat sheet</h3>
+                <p data-i18n="aoe4.feature2Desc">Attack cadence, melee and ranged armor, bonus damage, charges and healing all play
                   out to a time-to-kill and a survivor.</p>
               </li>
               <li>
-                <h3>Army battles</h3>
-                <p>Scale past 1v1 to N-vs-M, balanced by equal cost or equal population, with focus-fire
+                <h3 data-i18n="aoe4.feature3Title">Army battles</h3>
+                <p data-i18n="aoe4.feature3Desc">Scale past 1v1 to N-vs-M, balanced by equal cost or equal population, with focus-fire
                   and attack-move engagement models.</p>
               </li>
               <li>
-                <h3>Kiting and spacing</h3>
-                <p>Ranged units kite; an approach phase gives archers their free shots while melee
+                <h3 data-i18n="aoe4.feature4Title">Kiting and spacing</h3>
+                <p data-i18n="aoe4.feature4Desc">Ranged units kite; an approach phase gives archers their free shots while melee
                   closes the gap.</p>
               </li>
               <li>
-                <h3>Patch-proof data</h3>
-                <p>Every unit is rebuilt from the game's data each patch, with a correction layer for
+                <h3 data-i18n="aoe4.feature5Title">Patch-proof data</h3>
+                <p data-i18n="aoe4.feature5Desc">Every unit is rebuilt from the game's data each patch, with a correction layer for
                   the special cases.</p>
               </li>
               <li>
-                <h3>Live on Twitch</h3>
-                <p>A companion extension runs matchups on the channel overlay, sharing the same engine
+                <h3 data-i18n="aoe4.feature6Title">Live on Twitch</h3>
+                <p data-i18n="aoe4.feature6Desc">A companion extension runs matchups on the channel overlay, sharing the same engine
                   as the site.</p>
               </li>
             </ul>
 
-            <h2>Tech stack</h2>
-            <p>
+            <h2 data-i18n="common.techStack">Tech stack</h2>
+            <p data-i18n="aoe4.techP">
               A React 18 and TypeScript single-page app, styled with TailwindCSS and shadcn/ui,
               animated with Framer Motion, bundled by Vite. The combat logic sits in isolated modules
               reused by both the site and the Twitch extension. Unit pages are pre-rendered to static
@@ -156,15 +160,15 @@
           <aside class="project-sidebar">
             <div class="sidebar-card">
               <div class="sidebar-meta">
-                <div><span class="k">Year</span><span class="v">2025–now</span></div>
-                <div><span class="k">Type</span><span class="v">Web app</span></div>
-                <div><span class="k">Status</span><span class="v">Live</span></div>
+                <div><span class="k" data-i18n="common.year">Year</span><span class="v" data-i18n="aoe4.yearRange">2025–now</span></div>
+                <div><span class="k" data-i18n="common.type">Type</span><span class="v" data-i18n="aoe4.meta1">Web app</span></div>
+                <div><span class="k" data-i18n="common.status">Status</span><span class="v" data-i18n="common.statusLive">Live</span></div>
               </div>
               <a class="btn btn-block" href="https://www.aoe4units.com" target="_blank" rel="noopener">
-                Visit aoe4units.com</a>
+                <span data-i18n="aoe4.visitButton">Visit aoe4units.com</span></a>
               <a class="btn btn-block" href="https://github.com/f2ire/aoe4units" target="_blank" rel="noopener">
-                View on GitHub</a>
-              <h3 class="sidebar-label">Stack</h3>
+                <span data-i18n="common.viewGithub">View on GitHub</span></a>
+              <h3 class="sidebar-label" data-i18n="common.stack">Stack</h3>
               <ul class="project-stack">
                 <li><i class="devicon-react-original colored"></i>React 18</li>
                 <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
@@ -182,7 +186,7 @@
       <iframe class="proj-nav-frame" src="shen.html" title="Shen preview" loading="lazy" scrolling="no" tabindex="-1"
         aria-hidden="true"></iframe>
       <span class="proj-nav-body">
-        <span class="proj-nav-dir">← Previous</span>
+        <span class="proj-nav-dir" data-i18n="common.previous">← Previous</span>
         <span class="proj-nav-name">Shen</span>
       </span>
     </div>
@@ -191,7 +195,7 @@
       <iframe class="proj-nav-frame" src="iori.html" title="Iori preview" loading="lazy" scrolling="no" tabindex="-1"
         aria-hidden="true"></iframe>
       <span class="proj-nav-body">
-        <span class="proj-nav-dir">Next →</span>
+        <span class="proj-nav-dir" data-i18n="common.next">Next →</span>
         <span class="proj-nav-name">Iori</span>
       </span>
     </div>
@@ -206,6 +210,7 @@
     <img src="" alt="">
   </div>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 

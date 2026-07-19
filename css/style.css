@@ -164,8 +164,8 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 .site-header.scrolled .theme-toggle { border-color: var(--border); color: var(--text); }
 .theme-toggle:hover { border-color: var(--accent-warm); color: var(--accent-warm); }
 
-/* season picker dropdown */
-.season-menu {
+/* season picker dropdown (shared style with the language picker) */
+.season-menu, .lang-menu {
   position: absolute;
   top: calc(100% + 0.6rem);
   right: 0;
@@ -179,9 +179,9 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
   box-shadow: var(--shadow);
   z-index: 20;
 }
-.season-menu[hidden] { display: none; }
+.season-menu[hidden], .lang-menu[hidden] { display: none; }
 
-.season-option {
+.season-option, .lang-option {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -196,8 +196,8 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
   cursor: pointer;
   transition: background 0.15s;
 }
-.season-option:hover { background: var(--bg-alt); }
-.season-option.active { color: var(--accent); font-weight: 600; }
+.season-option:hover, .lang-option:hover { background: var(--bg-alt); }
+.season-option.active, .lang-option.active { color: var(--accent); font-weight: 600; }
 
 /* one season icon at a time */
 .theme-toggle .season-icon { display: none; font-size: 1rem; line-height: 1; }
@@ -206,6 +206,12 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 [data-theme="summer"] .icon-summer,
 [data-theme="autumn"] .icon-autumn,
 [data-theme="winter"] .icon-winter { display: block; }
+
+/* one language icon at a time */
+.theme-toggle .lang-icon { display: none; font-size: 1rem; line-height: 1; }
+:root:not([data-lang]) .icon-en,
+[data-lang="en"] .icon-en,
+[data-lang="fr"] .icon-fr { display: block; }
 
 /* ---- Mobile nav : hamburger + dropdown ---- */
 @media (max-width: 720px) {
@@ -455,7 +461,7 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
 /* ============ About Me ============ */
 .about-grid {
   display: grid;
-  grid-template-columns: 340px 1.1fr 0.9fr;
+  grid-template-columns: 340px minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 3rem;
   align-items: start;
 }
