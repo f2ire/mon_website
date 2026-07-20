@@ -351,6 +351,12 @@ function saveLang(lang) {
 }
 
 function initLang() {
+  // ?lang=fr in the URL wins (CV links), and sticks for the next visit
+  const fromUrl = new URLSearchParams(location.search).get("lang");
+  if (LANGS.includes(fromUrl)) {
+    saveLang(fromUrl);
+    return;
+  }
   const saved = localStorage.getItem("lang");
   setLang(LANGS.includes(saved) ? saved : "en");
 }
