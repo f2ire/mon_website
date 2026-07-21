@@ -46,7 +46,7 @@ function saveSeason(season) {
 
 function initSeason() {
   const saved = localStorage.getItem("season");
-  setSeason(SEASONS.includes(saved) ? saved : "spring");
+  setSeason(SEASONS.includes(saved) ? saved : "summer");
 }
 
 function openSeasonMenu() {
@@ -84,6 +84,49 @@ document.addEventListener("click", (e) => {
     closeSeasonMenu();
   }
 });
+
+// ============ First-visit season hint ============
+// a small nudge so people realise the sun/leaf button switches the season theme
+function showSeasonHint() {
+  if (localStorage.getItem("season") || localStorage.getItem("seasonHintSeen")) return;
+
+  const hint = document.createElement("div");
+  hint.className = "season-hint";
+  hint.setAttribute("role", "status");
+  hint.dataset.i18n = "hint.season";
+  const lang = root.dataset.lang || "en";
+  hint.textContent = translations["hint.season"]?.[lang] ?? "Choose a theme to match your favorite season";
+  document.body.appendChild(hint);
+
+  function place() {
+    const r = toggle.getBoundingClientRect();
+    const pad = 12;
+    const w = hint.offsetWidth;
+    const cx = r.left + r.width / 2;
+    const left = Math.max(pad, Math.min(cx - w / 2, window.innerWidth - w - pad));
+    hint.style.top = `${r.bottom + 10}px`;
+    hint.style.left = `${left}px`;
+    hint.style.setProperty("--arrow-x", `${cx - left}px`);
+  }
+  place();
+  requestAnimationFrame(() => hint.classList.add("visible"));
+
+  let autoHide = 0;
+  function dismiss() {
+    localStorage.setItem("seasonHintSeen", "1");
+    clearTimeout(autoHide);
+    window.removeEventListener("resize", place);
+    toggle.removeEventListener("mouseenter", dismiss);
+    toggle.removeEventListener("click", dismiss);
+    hint.classList.remove("visible");
+    hint.addEventListener("transitionend", () => hint.remove(), { once: true });
+  }
+  autoHide = setTimeout(dismiss, 8000);
+  window.addEventListener("resize", place);
+  toggle.addEventListener("mouseenter", dismiss);
+  toggle.addEventListener("click", dismiss);
+}
+showSeasonHint();
 
 // ============ Mobile hamburger menu ============
 const burger = document.getElementById("nav-burger");

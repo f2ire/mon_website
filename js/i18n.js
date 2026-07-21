@@ -2,6 +2,12 @@
 // key -> { en, fr }. Elements pick up translations via data-i18n (textContent)
 // or data-i18n-html (innerHTML, for strings containing inline tags).
 const translations = {
+  // First-visit hint
+  "hint.season": {
+    en: "Choose a theme to match your favorite season",
+    fr: "Choisissez un thème selon votre saison préférée",
+  },
+
   // Nav
   "nav.about": { en: "About", fr: "À propos" },
   "nav.projects": { en: "Projects", fr: "Projets" },
