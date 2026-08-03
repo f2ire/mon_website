@@ -15,13 +15,13 @@ const translations = {
   "nav.photography": { en: "Photography", fr: "Photographie" },
 
   // Page titles (browser tab)
-  "index.title": { en: "Yanis · Software Developer", fr: "Yanis · Développeur logiciel" },
+  "index.title": { en: "Yanis · Backend & Data Engineer", fr: "Yanis · Ingénieur Backend & Data" },
   "shen.title": { en: "Shen · Yanis", fr: "Shen · Yanis" },
   "aoe4.title": { en: "AoE4 Units · Yanis", fr: "AoE4 Units · Yanis" },
   "iori.title": { en: "Iori · Yanis", fr: "Iori · Yanis" },
 
   // Hero (index)
-  "hero.title": { en: "Software Developer", fr: "Développeur logiciel" },
+  "hero.title": { en: "Backend & Data Engineer", fr: "Ingénieur Backend & Data" },
   "hero.cta": { en: "See portfolio", fr: "Voir le portfolio" },
 
   // About Me (index)
@@ -33,8 +33,8 @@ const translations = {
   "about.cvButton": { en: "Download CV", fr: "Télécharger le CV" },
   "about.cvHref": { en: "assets/resume.pdf", fr: "assets/resume_fr.pdf" },
   "about.bio1": {
-    en: "I'm Yanis, a software engineer based in Toulon, France. I've always been passionate about animals, and that's how I came to code, through biology: after starting a degree in the field, I moved to INSA Lyon to study computer science, then spent a year at Sanofi building software for vaccine research. That's where I figured out what I like building: backend work and tools that feel finished, that answer a real need rather than existing for their own sake.",
-    fr: "Je m'appelle Yanis, jeune ingénieur logiciel actuellement basé à Toulon. J'ai toujours été passionné par les animaux et les sciences de la vie. C'est par cette voie via ma licence que j'ai découvert la joie de programmer. J'ai ensuite rejoint l'INSA Lyon pour approfondir cette nouvelle passion, puis j'ai passé un an chez Sanofi à développer des outils pour la recherche vaccinale. C'est là que j'ai compris ce que j'aimais : construire des outils aboutis qui répondent à un vrai besoin.",
+    en: "I'm Yanis, a backend & data engineer based in Toulon, France. I've always been passionate about animals, and that's how I came to code, through biology: after starting a degree in the field, I moved to INSA Lyon to study computer science, then spent a year at Sanofi building software for vaccine research. That's where I figured out what I like building: backend work and tools that feel finished, that answer a real need rather than existing for their own sake.",
+    fr: "Je m'appelle Yanis, jeune ingénieur backend & data actuellement basé à Toulon. J'ai toujours été passionné par les animaux et les sciences de la vie. C'est par cette voie via ma licence que j'ai découvert la joie de programmer. J'ai ensuite rejoint l'INSA Lyon pour approfondir cette nouvelle passion, puis j'ai passé un an chez Sanofi à développer des outils pour la recherche vaccinale. C'est là que j'ai compris ce que j'aimais : construire des outils aboutis qui répondent à un vrai besoin.",
   },
   "about.bio2": {
     en: "During engineering school I also discovered Japan. I started learning the language, moved there for an exchange semester, and after graduating went back to dive deeper into the culture and push my Japanese further, shipping personal projects along the way.",
@@ -106,6 +106,18 @@ const translations = {
   "experience.bullet4": {
     en: "Brought DevOps practices into the project (automated testing with pytest, CI, Git, Docker) while working day to day in a French-American Agile team, in French and English.",
     fr: "Introduit des pratiques DevOps dans le projet (tests automatisés avec pytest, CI, Git, Docker) en travaillant au quotidien dans une équipe Agile franco-américaine, en français et en anglais.",
+  },
+  "experience2.role": {
+    en: "Machine Learning Intern, Media Informatics Laboratory (Kobe, Japan)",
+    fr: "Stage Machine Learning, Media Informatics Laboratory (Kobe, Japon)",
+  },
+  "experience2.bullet1": {
+    en: "Built an AI agent based on LLMs and a RAG architecture to automate scientific literature research.",
+    fr: "Développement d'un AI agent basé sur des LLM et une architecture RAG pour automatiser la recherche documentaire scientifique.",
+  },
+  "experience2.bullet2": {
+    en: "Designed Python web scraping pipelines to build the dataset used to improve model performance.",
+    fr: "Conception de pipelines de web scraping en Python pour constituer le dataset d'entraînement du modèle.",
   },
 
   // Technologies / Photography (index)
