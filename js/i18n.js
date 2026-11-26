@@ -87,6 +87,16 @@ const translations = {
     en: "A browser extension paired with a local Python backend that interrupts endless social-media scrolling with Japanese flashcard overlays. It uses a spaced-repetition system (SM-2) to schedule reviews.",
     fr: "Une extension de navigateur couplée à un backend Python local qui interrompt le défilement infini des réseaux sociaux avec des cartes mémo japonaises. Elle utilise un système de répétition espacée (SM-2) pour planifier les révisions.",
   },
+  "project.clipfinder.desc": {
+    en: "Finds the moments worth clipping in a Twitch VOD by reading the chat instead of the video, then frames and exports them as 9:16 shorts. On the same streams, it ranks more than twice as many real viewer clips in its top 10 as StreamLadder's AI. Windows app and free website.",
+    fr: "Repère les moments à clipper dans une VOD Twitch en lisant le chat plutôt que la vidéo, puis les cadre et les exporte en shorts 9:16. Sur les mêmes streams, il place dans son top 10 plus de deux fois plus de vrais clips de spectateurs que l'IA de StreamLadder. Application Windows et site gratuit.",
+  },
+  "project.searchjob.desc": {
+    en: "My own job-search tool. It collects thousands of offers from job APIs and company ATS boards, scores them against my profile with plain rules, and learns from my quick yes/no triage. Each application is then tracked from a tailored LaTeX CV and cover letter to the interview.",
+    fr: "Mon propre outil de recherche d'emploi. Il collecte des milliers d'offres depuis des API d'emploi et les ATS des entreprises, les note face à mon profil avec de simples règles, et apprend de mon tri rapide oui/non. Chaque candidature est ensuite suivie, du CV et de la lettre LaTeX adaptés jusqu'à l'entretien.",
+  },
+  "searchjob.placeholder": { en: "Private tool", fr: "Outil privé" },
+  "searchjob.yearRange": { en: "2026", fr: "2026" },
 
   // Experience (index)
   "experience.title": { en: "Experience", fr: "Expérience" },
@@ -300,6 +310,67 @@ const translations = {
     fr: "Backend Flask et stockage local sur votre propre machine : lié uniquement à la boucle locale, aucun compte, aucun cloud, aucune télémétrie.",
   },
   "iori.screenshotsH2": { en: "Screenshots", fr: "Captures d'écran" },
+  // ClipFinder (projects/clipfinder.html)
+  "clipfinder.title": { en: "ClipFinder · Yanis", fr: "ClipFinder · Yanis" },
+  "clipfinder.eyebrow": { en: "Personal project · 2026–now", fr: "Projet personnel · 2026–aujourd'hui" },
+  "clipfinder.yearRange": { en: "2026–now", fr: "2026–aujourd'hui" },
+  "clipfinder.tagline": {
+    en: "A stream lasts eight hours; the clip worth posting lasts thirty seconds. ClipFinder finds those seconds by reading the chat instead of watching the video, then lets the streamer cut, frame and export them as vertical shorts.",
+    fr: "Un stream dure huit heures ; le clip qui mérite d'être posté dure trente secondes. ClipFinder trouve ces secondes en lisant le chat plutôt qu'en regardant la vidéo, puis laisse le streamer les couper, les cadrer et les exporter en shorts verticaux.",
+  },
+  "clipfinder.meta1": { en: "Desktop app + website", fr: "Application de bureau + site" },
+  "clipfinder.meta2": { en: "Twitch", fr: "Twitch" },
+  "clipfinder.meta3": { en: "Signal processing", fr: "Traitement du signal" },
+  "clipfinder.meta4": { en: "Video editing", fr: "Montage vidéo" },
+  "clipfinder.status": { en: "Beta", fr: "Bêta" },
+  "clipfinder.visitButton": { en: "Try it online", fr: "L'essayer en ligne" },
+  "clipfinder.p1": {
+    en: "Streamers lose hours scrubbing through their own VODs to find clips for TikTok and Shorts. The video is heavy, but the chat is light, and the chat already knows where the moments are: it explodes in caps, emotes and \"LOL\" a few seconds after something happens. ClipFinder downloads only the chat (a few MB for an eight-hour stream), turns it into a reaction signal and ranks the peaks.",
+    fr: "Les streamers passent des heures à parcourir leurs propres VOD pour trouver des clips pour TikTok et Shorts. La vidéo est lourde, mais le chat est léger, et le chat sait déjà où sont les moments : il explose en majuscules, en emotes et en « LOL » quelques secondes après qu'il se passe quelque chose. ClipFinder ne télécharge que le chat (quelques Mo pour un stream de huit heures), le transforme en signal de réaction et classe les pics.",
+  },
+  "clipfinder.p2": {
+    en: "The ranking is a real pipeline, not a keyword count. Every message is scored against a vocabulary of reaction categories, the signal is compared to its own rolling baseline (median and MAD over 30 minutes) and peaks are picked with <code>scipy.find_peaks</code>. Filters then drop what only looks like a reaction: bot spam, copypasta, raids and the thank-you waves after a sub. Other signals join in when they are available: how loud the stream got, the markers the streamer placed live, Nightbot counters, and the streamer's own microphone (screams, strong words, a spoken \"clip that\").",
+    fr: "Le classement est un vrai pipeline, pas un comptage de mots-clés. Chaque message est noté selon un vocabulaire de catégories de réaction, le signal est comparé à sa propre ligne de base glissante (médiane et MAD sur 30 minutes) et les pics sont détectés avec <code>scipy.find_peaks</code>. Des filtres écartent ensuite ce qui ressemble seulement à une réaction : spam de bots, copypasta, raids et vagues de remerciements après un abonnement. D'autres signaux s'ajoutent quand ils sont disponibles : le volume sonore du stream, les marqueurs posés en direct par le streamer, les compteurs Nightbot, et le micro du streamer lui-même (cris, mots forts, un « clip ça » prononcé).",
+  },
+  "clipfinder.p3": {
+    en: "Every setting was decided by a number, never by feel. The clips viewers actually made on Twitch are the only ground truth, so a <code>bench</code> command re-ranks a labelled set of VODs and reports where each viewer clip landed. Measured against StreamLadder's ClipGPT on the same 15 VODs, ClipFinder put <strong>11 viewer clips in its top 10, against 5</strong>, with 40% less video to review.",
+    fr: "Chaque réglage a été décidé par un chiffre, jamais au ressenti. Les clips que les spectateurs ont vraiment créés sur Twitch sont la seule vérité terrain : une commande <code>bench</code> reclasse un ensemble de VOD annotées et indique où chaque clip de spectateur est tombé. Face à ClipGPT de StreamLadder sur les mêmes 15 VOD, ClipFinder place <strong>11 clips de spectateurs dans son top 10, contre 5</strong>, avec 40 % de vidéo en moins à revoir.",
+  },
+  "clipfinder.feature1Title": { en: "Moments from the chat", fr: "Les moments, depuis le chat" },
+  "clipfinder.feature1Desc": {
+    en: "Paste a VOD link and get a ranked list in about a minute, each moment with the reason it ranked: the messages, the loudness, the marker.",
+    fr: "Collez le lien d'une VOD et obtenez une liste classée en une minute environ, chaque moment avec la raison de son rang : les messages, le volume, le marqueur.",
+  },
+  "clipfinder.feature2Title": { en: "Viewer clips & markers", fr: "Clips de spectateurs et marqueurs" },
+  "clipfinder.feature2Desc": {
+    en: "Signed in with Twitch, the clips viewers made and the markers placed live join the list, matched to the moments the chat found.",
+    fr: "Connecté à Twitch, les clips créés par les spectateurs et les marqueurs posés en direct rejoignent la liste, rapprochés des moments trouvés par le chat.",
+  },
+  "clipfinder.feature3Title": { en: "A 9:16 editor", fr: "Un éditeur 9:16" },
+  "clipfinder.feature3Desc": {
+    en: "Layouts and crops for the game and the facecam, captions, texts, images, speed ramps and a hook, with a live phone preview.",
+    fr: "Mises en page et recadrages pour le jeu et la facecam, sous-titres, textes, images, changements de vitesse et accroche, avec un aperçu téléphone en direct.",
+  },
+  "clipfinder.feature4Title": { en: "Montages", fr: "Montages" },
+  "clipfinder.feature4Desc": {
+    en: "Clips from any VOD, in your order, on a multi-lane timeline with snap points, locked and muted lanes.",
+    fr: "Des clips de n'importe quelle VOD, dans votre ordre, sur une timeline multipiste avec points d'accroche, pistes verrouillées et coupées.",
+  },
+  "clipfinder.feature5Title": { en: "Export, mp4 or DaVinci", fr: "Export, mp4 ou DaVinci" },
+  "clipfinder.feature5Desc": {
+    en: "A ready-to-post 9:16 mp4, or one DaVinci Resolve timeline per clip (FCPXML + subtitles) with 1080p60 sources, already framed.",
+    fr: "Un mp4 9:16 prêt à poster, ou une timeline DaVinci Resolve par clip (FCPXML + sous-titres) avec des sources 1080p60, déjà cadrées.",
+  },
+  "clipfinder.feature6Title": { en: "Undo everything", fr: "Tout s'annule" },
+  "clipfinder.feature6Desc": {
+    en: "Every edit can be undone and redone, even after a reload; deleted VODs wait 30 days in a trash. Keyboard-first, from i / o to split.",
+    fr: "Chaque modification s'annule et se rétablit, même après un rechargement ; les VOD supprimées attendent 30 jours dans une corbeille. Pensé pour le clavier, de i / o à la découpe.",
+  },
+  "clipfinder.screenshotsH2": { en: "Screenshots", fr: "Captures d'écran" },
+  "clipfinder.techP": {
+    en: "A Python 3.12 core (pandas, NumPy, SciPy) behind a Typer CLI and a FastAPI server. The interface is a single vanilla JavaScript page, no framework and no build step, shipped as a Windows app (PyInstaller + pywebview) that bundles ffmpeg, TwitchDownloaderCLI and a local speech-to-text model (SenseVoice via sherpa-onnx, whisper.cpp before it), so the streamer's voice never leaves their PC. The same code runs a free website on an Oracle Cloud ARM server behind Caddy, with Twitch OAuth and a daily export quota. Exports are ffmpeg filter graphs and hand-written FCPXML that DaVinci Resolve opens as timelines. About 1,700 tests, including end-to-end runs in a real Chrome with Playwright, plus ruff and strict mypy on every change.",
+    fr: "Un cœur en Python 3.12 (pandas, NumPy, SciPy) derrière une CLI Typer et un serveur FastAPI. L'interface est une seule page en JavaScript natif, sans framework ni étape de build, livrée comme application Windows (PyInstaller + pywebview) qui embarque ffmpeg, TwitchDownloaderCLI et un modèle de reconnaissance vocale local (SenseVoice via sherpa-onnx, whisper.cpp avant lui) : la voix du streamer ne quitte jamais son PC. Le même code fait tourner un site gratuit sur un serveur ARM Oracle Cloud derrière Caddy, avec OAuth Twitch et un quota d'export quotidien. Les exports sont des graphes de filtres ffmpeg et du FCPXML écrit à la main, que DaVinci Resolve ouvre comme des timelines. Environ 1 700 tests, dont des tests de bout en bout dans un vrai Chrome avec Playwright, plus ruff et mypy strict à chaque modification.",
+  },
   "iori.techP": {
     en: "A TypeScript Manifest&nbsp;V3 extension (Chromium and Firefox) renders the overlay in a Shadow DOM and forwards every browser event to a local Python / Flask backend. The core (the attention machine and the SM-2 engine) is written as pure, side-effect-free functions covered by a pytest suite. The dictionary is a JMdict dump built offline into SQLite, with word-frequency ranking from <code>wordfreq</code>, and unknown selections fall back to a keyless machine translator. Everything runs on one machine, over <code>127.0.0.1</code>.",
     fr: "Une extension TypeScript Manifest&nbsp;V3 (Chromium et Firefox) affiche l'incrustation dans un Shadow DOM et transmet chaque événement du navigateur à un backend Python / Flask local. Le cœur (la machine à états d'attention et le moteur SM-2) est écrit sous forme de fonctions pures, sans effets de bord, couvertes par une suite de tests pytest. Le dictionnaire est un export JMdict compilé hors ligne en SQLite, avec un classement par fréquence des mots via <code>wordfreq</code>, et les sélections inconnues se rabattent sur un traducteur automatique sans clé. Tout tourne sur une seule machine, via <code>127.0.0.1</code>.",

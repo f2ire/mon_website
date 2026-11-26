@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="clipfinder.title">ClipFinder · Yanis</title>
+  <meta name="description"
+    content="ClipFinder: finds the moments worth clipping in a Twitch VOD by reading the chat, then frames and exports them as 9:16 shorts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sindtbaret.fr/projects/clipfinder.html">
+  <meta property="og:title" content="ClipFinder · Yanis">
+  <meta property="og:description"
+    content="ClipFinder: finds the moments worth clipping in a Twitch VOD by reading the chat, then frames and exports them as 9:16 shorts.">
+  <meta property="og:image" content="https://sindtbaret.fr/assets/projects/clipfinder_landing.webp">
+  <meta property="og:image:alt" content="ClipFinder screenshot">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="solid-header" data-i18n-title="clipfinder.title">
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav-logo"><img src="../assets/favicon.png" alt="">Yanis</a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html#projects" data-i18n="nav.projects">Projects</a>
+        <a href="../index.html#experience" data-i18n="nav.experience">Experience</a>
+        <a href="../index.html#about" data-i18n="nav.about">About</a>
+        <a href="../index.html#photography" data-i18n="nav.photography">Photography</a>
+      </div>
+      <div class="nav-right">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Change season theme">
+          <span class="season-icon icon-spring" aria-hidden="true">🌸</span>
+          <span class="season-icon icon-summer" aria-hidden="true">☀️</span>
+          <span class="season-icon icon-autumn" aria-hidden="true">🍂</span>
+          <span class="season-icon icon-winter" aria-hidden="true">❄️</span>
+        </button>
+        <button id="lang-toggle" class="theme-toggle lang-toggle" aria-label="Change language">
+          <span class="lang-icon icon-en" aria-hidden="true">🇬🇧</span>
+          <span class="lang-icon icon-fr" aria-hidden="true">🇫🇷</span>
+        </button>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false"
+          aria-controls="nav-links">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container">
+        <a class="back-link" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span data-i18n="common.backToProjects">Back to projects</span>
+        </a>
+
+        <p class="project-eyebrow" data-i18n="clipfinder.eyebrow">Personal project · 2026–now</p>
+        <h1 class="project-title">ClipFinder</h1>
+        <p class="project-tagline" data-i18n="clipfinder.tagline">
+          A stream lasts eight hours; the clip worth posting lasts thirty seconds. ClipFinder finds those
+          seconds by reading the chat instead of watching the video, then lets the streamer cut, frame and
+          export them as vertical shorts.
+        </p>
+        <div class="project-meta">
+          <span class="meta-chip" data-i18n="clipfinder.meta1">Desktop app + website</span>
+          <span class="meta-chip" data-i18n="clipfinder.meta2">Twitch</span>
+          <span class="meta-chip" data-i18n="clipfinder.meta3">Signal processing</span>
+          <span class="meta-chip" data-i18n="clipfinder.meta4">Video editing</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-body-wrap">
+      <div class="container">
+        <figure class="project-cover">
+          <div class="cover-bar"><span></span><span></span><span></span></div>
+          <img src="../assets/projects/clipfinder_landing.webp"
+            alt="ClipFinder: the website's landing page, with clips found by the chat and its reaction chart">
+        </figure>
+
+        <div class="project-layout">
+          <div class="project-detail">
+            <h2 data-i18n="common.aboutProject">About the project</h2>
+            <p data-i18n="clipfinder.p1">
+              Streamers lose hours scrubbing through their own VODs to find clips for TikTok and Shorts.
+              The video is heavy, but the chat is light, and the chat already knows where the moments are:
+              it explodes in caps, emotes and "LOL" a few seconds after something happens.
+              ClipFinder downloads only the chat (a few MB for an eight-hour stream), turns it into a
+              reaction signal and ranks the peaks.
+            </p>
+            <p data-i18n-html="clipfinder.p2">
+              The ranking is a real pipeline, not a keyword count. Every message is scored against a
+              vocabulary of reaction categories, the signal is compared to its own rolling baseline
+              (median and MAD over 30 minutes) and peaks are picked with <code>scipy.find_peaks</code>.
+              Filters then drop what only looks like a reaction: bot spam, copypasta, raids and the
+              thank-you waves after a sub. Other signals join in when they are available: how loud the
+              stream got, the markers the streamer placed live, Nightbot counters, and the streamer's own
+              microphone (screams, strong words, a spoken "clip that").
+            </p>
+            <p data-i18n-html="clipfinder.p3">
+              Every setting was decided by a number, never by feel. The clips viewers actually made on
+              Twitch are the only ground truth, so a <code>bench</code> command re-ranks a labelled set of
+              VODs and reports where each viewer clip landed. Measured against StreamLadder's ClipGPT on
+              the same 15 VODs, ClipFinder put <strong>11 viewer clips in its top 10, against 5</strong>,
+              with 40% less video to review.
+            </p>
+
+            <h2 data-i18n="common.mainFeatures">Main features</h2>
+            <ul class="feature-grid">
+              <li>
+                <h3 data-i18n="clipfinder.feature1Title">Moments from the chat</h3>
+                <p data-i18n="clipfinder.feature1Desc">Paste a VOD link and get a ranked list in about a minute,
+                  each moment with the reason it ranked: the messages, the loudness, the marker.</p>
+              </li>
+              <li>
+                <h3 data-i18n="clipfinder.feature2Title">Viewer clips &amp; markers</h3>
+                <p data-i18n="clipfinder.feature2Desc">Signed in with Twitch, the clips viewers made and the
+                  markers placed live join the list, matched to the moments the chat found.</p>
+              </li>
+              <li>
+                <h3 data-i18n="clipfinder.feature3Title">A 9:16 editor</h3>
+                <p data-i18n="clipfinder.feature3Desc">Layouts and crops for the game and the facecam, captions,
+                  texts, images, speed ramps and a hook, with a live phone preview.</p>
+              </li>
+              <li>
+                <h3 data-i18n="clipfinder.feature4Title">Montages</h3>
+                <p data-i18n="clipfinder.feature4Desc">Clips from any VOD, in your order, on a multi-lane
+                  timeline with snap points, locked and muted lanes.</p>
+              </li>
+              <li>
+                <h3 data-i18n="clipfinder.feature5Title">Export, mp4 or DaVinci</h3>
+                <p data-i18n="clipfinder.feature5Desc">A ready-to-post 9:16 mp4, or one DaVinci Resolve timeline
+                  per clip (FCPXML + subtitles) with 1080p60 sources, already framed.</p>
+              </li>
+              <li>
+                <h3 data-i18n="clipfinder.feature6Title">Undo everything</h3>
+                <p data-i18n="clipfinder.feature6Desc">Every edit can be undone and redone, even after a reload;
+                  deleted VODs wait 30 days in a trash. Keyboard-first, from i / o to split.</p>
+              </li>
+            </ul>
+
+            <h2 data-i18n="clipfinder.screenshotsH2">Screenshots</h2>
+            <div class="project-gallery">
+              <figure>
+                <img src="../assets/projects/clipfinder_editor.webp"
+                  alt="ClipFinder: the 9:16 editor, with crops, timeline and a phone preview">
+              </figure>
+              <figure>
+                <img src="../assets/projects/clipfinder_moments.webp"
+                  alt="ClipFinder: a VOD's moments, ranked, with the reason each one ranked">
+              </figure>
+              <figure>
+                <img src="../assets/projects/clipfinder_montage.webp"
+                  alt="ClipFinder: a montage on a multi-lane timeline">
+              </figure>
+            </div>
+
+            <h2 data-i18n="common.techStack">Tech stack</h2>
+            <p data-i18n-html="clipfinder.techP">
+              A Python 3.12 core (pandas, NumPy, SciPy) behind a Typer CLI and a FastAPI server. The interface
+              is a single vanilla JavaScript page, no framework and no build step, shipped as a Windows app
+              (PyInstaller + pywebview) that bundles ffmpeg, TwitchDownloaderCLI and a local speech-to-text
+              model (SenseVoice via sherpa-onnx, whisper.cpp before it), so the streamer's voice never leaves
+              their PC. The same code runs a free website on an Oracle Cloud ARM server behind Caddy, with
+              Twitch OAuth and a daily export quota. Exports are ffmpeg filter graphs and hand-written
+              FCPXML that DaVinci Resolve opens as timelines. About 1,700 tests, including end-to-end runs in a
+              real Chrome with Playwright, plus ruff and strict mypy on every change.
+            </p>
+          </div>
+
+          <aside class="project-sidebar">
+            <div class="sidebar-card">
+              <div class="sidebar-meta">
+                <div><span class="k" data-i18n="common.year">Year</span><span class="v"
+                    data-i18n="clipfinder.yearRange">2026–now</span></div>
+                <div><span class="k" data-i18n="common.type">Type</span><span class="v"
+                    data-i18n="clipfinder.meta1">Desktop app + website</span></div>
+                <div><span class="k" data-i18n="common.status">Status</span><span class="v"
+                    data-i18n="clipfinder.status">Beta</span></div>
+              </div>
+              <a class="btn btn-block" href="https://clipfinder.duckdns.org" target="_blank" rel="noopener">
+                <span data-i18n="clipfinder.visitButton">Try it online</span></a>
+              <h3 class="sidebar-label" data-i18n="common.stack">Stack</h3>
+              <ul class="project-stack">
+                <li><i class="devicon-python-plain colored"></i>Python</li>
+                <li><i class="devicon-fastapi-plain colored"></i>FastAPI</li>
+                <li><i class="devicon-pandas-plain"></i>pandas</li>
+                <li><i class="devicon-javascript-plain colored"></i>JavaScript</li>
+                <li><i class="devicon-playwright-plain"></i>Playwright</li>
+                <li><i class="devicon-linux-plain"></i>Linux</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-nav prev">
+      <a class="card-link" href="iori.html" aria-label="Previous project: Iori"></a>
+      <iframe class="proj-nav-frame" src="iori.html" title="Iori preview" loading="lazy" scrolling="no"
+        tabindex="-1" aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir" data-i18n="common.previous">← Previous</span>
+        <span class="proj-nav-name">Iori</span>
+      </span>
+    </div>
+    <div class="proj-nav next">
+      <a class="card-link" href="shen.html" aria-label="Next project: Shen"></a>
+      <iframe class="proj-nav-frame" src="shen.html" title="Shen preview" loading="lazy" scrolling="no" tabindex="-1"
+        aria-hidden="true"></iframe>
+      <span class="proj-nav-body">
+        <span class="proj-nav-dir" data-i18n="common.next">Next →</span>
+        <span class="proj-nav-name">Shen</span>
+      </span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Yanis SINDT-BARET</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/main.js"></script>
+
+  <!-- Analytics -->
+  <script data-goatcounter="https://sindtbaret.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
